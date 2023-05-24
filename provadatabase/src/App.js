@@ -1,9 +1,14 @@
 import {Auth} from "./components/auth";
-import {db} from "./config/dbconfig"
+import { onAuthStateChanged } from "firebase/auth";
+import {auth, db} from "./config/dbconfig"
 import {useEffect, useState} from "react";
 import {getDocs, collection, addDoc, deleteDoc, doc, updateDoc} from "firebase/firestore"
+import {  signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom'
 
 function App() {
+
+    const navigate = useNavigate();
 
     const [movieList, setMovieList] = useState([]);
 
@@ -33,6 +38,25 @@ function App() {
     useEffect(() => {
         getMovieList()
     }, []);
+
+    const logout = () => {
+        signOut(auth).then(() => {
+            console.log("Signed out successfully")
+        }).catch((error) => {
+            console.log(error.code, error.message)
+        });
+    }
+
+    useEffect(()=>{
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                const email = user.email
+                console.log("email", email)
+            }else{
+                console.log("none")
+            }
+        })
+    })
 
     const inviaMovie = async () => {
         try{
@@ -67,7 +91,7 @@ function App() {
     return (
         <div>
 
-            <button onClick={() => Auth.signOut()}>Sign up</button>
+            <button onClick={logout}>Logout</button>
 
             <div>
                 <input placeholder="Movie title...." onChange={(e) => setNewMovieTitle(e.target.value)}/>
