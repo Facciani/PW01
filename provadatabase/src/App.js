@@ -1,7 +1,7 @@
 import {Auth} from "./components/auth";
 import {db} from "./config/dbconfig"
 import {useEffect, useState} from "react";
-import {getDocs, collection, addDoc} from "firebase/firestore"
+import {getDocs, collection, addDoc, deleteDoc, doc, updateDoc} from "firebase/firestore"
 
 function App() {
 
@@ -11,6 +11,9 @@ function App() {
     const [newMovieTitle, setNewMovieTitle] = useState("")
     const [newMovieDate, setNewMovieDate] = useState(0)
     const [newMovieGood, setNewMovieGood] = useState(false)
+
+    //update values
+    const [updateTitle, setUpdateTitle] = useState("")
 
 
     const moviesCollectionRef = collection(db, "movies")
@@ -40,10 +43,31 @@ function App() {
         }
     }
 
+    const eliminaMovie = async (id) => {
+        try{
+            const movieDoc = doc(db, "movies" , id)
+            await deleteDoc(movieDoc)
+            getMovieList()
+        }catch (err){
+            console.log(err)
+        }
+    }
+
+    const modificaMovie = async (id) => {
+        try{
+            const movieDoc = doc(db, "movies" , id)
+            await updateDoc(movieDoc, {title: updateTitle})
+            getMovieList()
+        }catch (err){
+            console.log(err)
+        }
+    }
+
 
     return (
         <div>
-            <Auth />
+
+            <button onClick={() => Auth.signOut()}>Sign up</button>
 
             <div>
                 <input placeholder="Movie title...." onChange={(e) => setNewMovieTitle(e.target.value)}/>
@@ -55,11 +79,14 @@ function App() {
 
             <div>
                 {movieList.map((movie) => (
-                    <div>
+                    <div style={{borderStyle: "solid", borderColor:"black"}}>
                         <h1>{movie.title}</h1>
                         <p> Date: {movie.relaseDate}</p>
                         <p> isGood: {movie.isGood ? "yes" : "no"}</p>
                         <p> id: {movie.id}</p>
+                        <button onClick={() => eliminaMovie(movie.id)}>Elimina movie</button>
+                        <input placeholder="Nuovo titolo" onChange={(e) => setUpdateTitle(e.target.value)}/>
+                        <button onClick={() => modificaMovie(movie.id)}>Aggiorna titolo</button>
                     </div>
                 ))}
             </div>
