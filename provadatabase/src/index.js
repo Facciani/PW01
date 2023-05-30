@@ -9,6 +9,7 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import Review from "./LoginAndSignUp/Pages/Review";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,9 @@ const router = createBrowserRouter([
     },{
         path: "/signup",
         element: <SignUp/>
+    },{
+        path: "/review",
+        element: <Review/>
     }
 ]);
 
