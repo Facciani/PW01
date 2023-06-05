@@ -3,6 +3,7 @@ function App() {
     <nav className="navbar">
       <button>Registrati</button>
       <button>Login</button>
+      <p>Ciao </p>
     </nav>
   );
 }
