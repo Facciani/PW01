@@ -1,0 +1,135 @@
+body {
+  background-color: #fffbf5;
+  margin: 0;
+}
+
+/*--------------------*/
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fffbf5;
+  padding: 10px;
+}
+
+.navbar button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.navbar button:nth-child(1) {
+  background-color: #e7dbc5;
+  width: 150px;
+}
+
+.navbar button:nth-child(2) {
+  background-color: #f77878;
+  width: 200px;
+}
+
+/*--------------------*/
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-image: url("./components/img/museum.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form-box {
+  background-color: #e7dbc5;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-end; /* Allineamento del bottone in basso */
+  margin-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.input-field {
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  background-color: #f77878;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/*--------------------*/
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #fffbf5;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.footer-column {
+  flex: 1;
+  max-width: 350px;
+}
+
+.footer-logo {
+  width: 29%;
+  height: 30%;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0;
+  font-size: 12px;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none; /* Rimuove i punti dall'elenco */
+  padding-left: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+.text-left {
+  text-align: left; /* Allinea il testo a sinistra */
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/*--------------------*/
+
+/*--------------------*/
