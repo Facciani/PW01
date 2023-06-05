@@ -3,7 +3,7 @@ import Search from "./components/search";
 import Suggest from "./components/suggestt";
 import Footer from "./components/footer";
 
-import style from "../src/";
+import "../src/index.css";
 
 function App() {
   return (
