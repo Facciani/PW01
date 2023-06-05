@@ -10,6 +10,8 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Review from "./LoginAndSignUp/Pages/Review";
+import Homepage from "./GestioneMusei/pages/homepage";
+import Dettaglio from "./GestioneMusei/pages/dettaglio";
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,13 @@ const router = createBrowserRouter([
     },{
         path: "/review",
         element: <Review/>
+    }
+    ,{
+        path: "/homepage",
+        element: <Homepage/>
+    },{
+        path: "/dettaglio",
+        element: <Dettaglio/>
     }
 ]);
 
