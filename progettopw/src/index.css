@@ -208,3 +208,49 @@ button:hover {
 }
 
 /*--------------------*/
+
+.carosello-container {
+  position: relative;
+  padding: 2%;
+  background-color: rgba(239, 219, 181, 0.46);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Aggiunta proprietà overflow */
+}
+
+.carousel-image {
+  max-height: 300px;
+  margin: 0 10px;
+  border-radius: 5%;
+  transition: transform 0.3s ease-in-out; /* Aggiunta transizione di trasformazione */
+}
+
+.foreground {
+  transform: scale(1); /* Imposta la scala normale per l'immagine centrale */
+}
+
+.background-left,
+.background-right {
+  transform: scale(0.6); /* Riduce la scala delle immagini laterali */
+}
+
+.previous-button,
+.next-button {
+  font-size: 24px;
+  border: none;
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.previous-button {
+  margin-right: 10%;
+}
+
+.next-button {
+  margin-left: 10%;
+}
