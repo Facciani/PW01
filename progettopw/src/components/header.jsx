@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <nav className="navbar">
-      <button>Registrati</button>
+      <button>{/* <Link to={"/registration.js"}>Registrati</Link> */}</button>
       <button>Login</button>
     </nav>
   );
