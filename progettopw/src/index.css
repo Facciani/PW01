@@ -32,6 +32,11 @@ body {
   width: 200px;
 }
 
+#one {
+  text-decoration: none;
+  color: white !important;
+}
+
 /*--------------------*/
 
 .form-container {
