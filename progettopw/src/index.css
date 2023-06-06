@@ -46,20 +46,20 @@ body {
 
 .form-box {
   background-color: #e7dbc5;
-  padding: 20px;
+  padding: 2%;
   border-radius: 10px;
 }
 
 .form-row {
   display: flex;
   align-items: flex-end; /* Allineamento del bottone in basso */
-  margin-bottom: 20px;
+  margin-bottom: 2%;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
+  margin-right: 10%;
 }
 
 .form-label {
@@ -67,7 +67,7 @@ body {
 }
 
 .input-field {
-  padding: 10px;
+  padding: 10%;
   margin-top: 5px;
 }
 
@@ -75,7 +75,7 @@ body {
   background-color: #f77878;
   color: #fff;
   border: none;
-  width: 20%;
+  width: 100%;
   border-radius: 5px;
   padding: 10px 20px;
 }
