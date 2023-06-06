@@ -17,6 +17,7 @@ function Footer() {
           <h3>Contact Us</h3>
           <ul>
             <li>Via Benigno crespi, 30</li>
+            <li>Via Benigno crespi, 30</li>
             <li>20159 Milano (MI)</li>
             <li>+39 2424175393</li>
           </ul>
