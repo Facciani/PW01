@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Header from "./components/header";
+//import Suggest from "./components/suggestt";
 import Footer from "./components/footer";
 
 import "../src/index.css";
