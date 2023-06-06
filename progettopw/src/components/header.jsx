@@ -5,8 +5,9 @@ const Header = () => {
   return (
     <nav>
       <div className="left-section">
-        <Link to="/main">
-          <img src="/components/img/logo.jpeg" alt="Logo" className="logo" />
+        <Link style={{ textDecoration: "none", color: "white" }} to={"/"}>
+          {" "}
+          <img src="src/components/img/logo" className="logonav" alt="logo" />
         </Link>
       </div>
       <div className="right-section">
