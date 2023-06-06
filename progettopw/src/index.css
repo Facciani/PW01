@@ -5,36 +5,36 @@ body {
 
 /*--------------------*/
 
-.navbar {
+nav {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  background-color: #fffbf5;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: #f2f2f2;
 }
 
-.navbar button {
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  color: #fff;
+.logo {
+  max-width: 100%;
+}
 
+.right-section {
+  display: flex;
+}
+
+.right-section button {
   margin-left: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
 }
 
-.navbar button:nth-child(1) {
+.right-section button:first-child {
   background-color: #e7dbc5;
-  width: 8%;
 }
 
-.navbar button:nth-child(2) {
+.right-section button:last-child {
   background-color: #f77878;
-  width: 8%;
-}
-
-#one {
-  text-decoration: none;
-  color: white !important;
 }
 
 /*--------------------*/
