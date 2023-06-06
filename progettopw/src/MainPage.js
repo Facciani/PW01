@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 
 import "../src/index.css";
 
-function App() {
+function MainPage() {
   return (
     <>
       <Header />
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainPage;
