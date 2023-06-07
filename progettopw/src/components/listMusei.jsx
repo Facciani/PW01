@@ -6,7 +6,6 @@ const ListMusei = () => {
       <div className="search-filter">
         <h3>Filtraggi</h3>
         <h4>come va?</h4>
-        <h4>come va?</h4>
       </div>
       <div className="museum-search">
         <GetMusei />
