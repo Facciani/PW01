@@ -9,6 +9,7 @@ import MuseumPage from "./paginamuseo";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Paginamuseo from "./paginamuseo";
 import {ContaProvider, SearchContext, SearchProvider} from "./components/context/searchContext";
+import {YourLocationContext, YourLocationProvider} from "./components/context/yourlocationContext";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <SearchProvider>
-      <RouterProvider router={router} />
+      <YourLocationProvider>
+        <RouterProvider router={router} />
+      </YourLocationProvider>
     </SearchProvider>
 );
