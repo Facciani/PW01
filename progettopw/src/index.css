@@ -289,7 +289,10 @@ button:hover {
 
 .heading {
   text-align: center;
+  font-weight: bold;
+   
 }
+
 
 .card-container {
   display: flex;
@@ -297,10 +300,75 @@ button:hover {
 }
 
 .card {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
   text-align: center;
+  width: 19%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  margin: 1%;
 }
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-section img {
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+}
+
+.bottom-section {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background-color: #E7DBC5;
+}
+
+
+.BottoneSave {
+	background-color:#e7dbc5;
+	border-radius:3px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 5px;
+	text-decoration:none;
+  margin-right: 5px;
+}
+.BottoneSave:hover {
+	background-color:#F45757;
+}
+.BottoneDettagli {
+	background-color:#ffffff;
+	border-radius:3px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 18px;
+	text-decoration:none;
+}
+.BottoneDettagli:hover {
+	background-color:#F45757;
+}
+
+
+
+
 
 
