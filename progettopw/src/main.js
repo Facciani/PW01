@@ -1,17 +1,17 @@
 import Header from "./components/header";
 import Search from "./components/search";
-import Suggest from "./components/suggestt";
 import Footer from "./components/footer";
 
 import "../src/index.css";
+import {ListMusei} from "./components/listMusei";
 
 function MainPage() {
   return (
     <>
-      <Header />
-      <Search />
-      <Suggest />
-      <Footer />
+        <Header />
+        <Search />
+        <ListMusei/>
+        <Footer />
     </>
   );
 }

@@ -8,6 +8,7 @@ import MuseumPage from "./paginamuseo";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Paginamuseo from "./paginamuseo";
+import {ContaProvider, SearchContext, SearchProvider} from "./components/context/searchContext";
 
 const router = createBrowserRouter([
   {
@@ -29,4 +30,8 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router} />);
+root.render(
+    <SearchProvider>
+      <RouterProvider router={router} />
+    </SearchProvider>
+);

@@ -1,4 +1,12 @@
+import {useState, useEffect, useContext} from "react";
+import {collection, query, getDocs, where } from "firebase/firestore";
+import {db} from "./dbconfig/dbconfig"
+import {SearchContext} from "./context/searchContext";
+
 const Search = () => {
+
+  const { search, setSearch } = useContext(SearchContext);
+
   return (
     <div className="form-container">
       <div className="form-box">
@@ -12,6 +20,7 @@ const Search = () => {
               id="campo1"
               placeholder="City"
               className="input-field"
+              onChange={(event) => setSearch(event.target.value.toLowerCase())}
             />
           </div>
           <div className="form-field">
@@ -24,9 +33,6 @@ const Search = () => {
               placeholder="Distance"
               className="input-field"
             />
-          </div>
-          <div className="form-field">
-            <button className="submit-button">Search</button>
           </div>
         </div>
       </div>
