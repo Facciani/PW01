@@ -279,3 +279,28 @@ button:hover {
   justify-content: cent;
   padding: 1%;
 }
+
+
+/*-----suggest-------*/
+
+.container {
+  text-align: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+
