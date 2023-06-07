@@ -43,7 +43,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 60vh;
   background-image: url("./components/img/museum.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -258,4 +258,24 @@ button:hover {
 
 .next-button {
   margin-left: 10%;
+}
+
+/*--------------------*/
+
+.search-container {
+  display: flex;
+  padding: 2%;
+}
+
+.search-filter {
+  width: 40%;
+  padding: 2%;
+  background-color: #e7dbc5;
+  border-radius: 10px;
+}
+
+.museum-search {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
 }
