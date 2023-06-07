@@ -1,4 +1,10 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./SpaceGrotesk-VariableFont_wght.ttf") format("woff2");
+}
+
 body {
+  font-family: "Space Grotesk", sans-serif;
   background-color: #fffbf5;
   margin: 0;
 }
@@ -280,7 +286,6 @@ button:hover {
   padding: 1%;
 }
 
-
 /*-----suggest-------*/
 
 .container {
@@ -290,9 +295,7 @@ button:hover {
 .heading {
   text-align: center;
   font-weight: bold;
-   
 }
-
 
 .card-container {
   display: flex;
@@ -331,44 +334,37 @@ button:hover {
   flex: 1;
   padding: 10px;
   text-align: center;
-  background-color: #E7DBC5;
+  background-color: #e7dbc5;
 }
 
-
 .BottoneSave {
-	background-color:#e7dbc5;
-	border-radius:3px;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:5px 5px;
-	text-decoration:none;
+  background-color: #e7dbc5;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 5px;
+  text-decoration: none;
   margin-right: 5px;
 }
 .BottoneSave:hover {
-	background-color:#F45757;
+  background-color: #f45757;
 }
 .BottoneDettagli {
-	background-color:#ffffff;
-	border-radius:3px;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:9px 18px;
-	text-decoration:none;
+  background-color: #ffffff;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 9px 18px;
+  text-decoration: none;
 }
 .BottoneDettagli:hover {
-	background-color:#F45757;
+  background-color: #f45757;
 }
-
-
-
-
-
-
