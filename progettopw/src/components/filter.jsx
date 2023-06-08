@@ -18,11 +18,13 @@ const Filter = () => {
     <div>
       {isSet ? (
         <div>
-          <h3>FILTRI</h3>
+          <h3 style={{ fontWeight: "bold", fontSize: "1.1em" }} >FILTRI</h3>
+          <p style={{ fontSize: "1.1em" }}>Tipologia di museo</p>
           <p>{isSet}</p>
-          <select name="paese">
-            <option value="I">Italia</option>
-            <option value="E">Estero</option>
+          <select name="paese" class="custom-select" >
+            <option value="cl" style={{ fontWeight: "bold"}}>Classico</option>
+            <option value="mo" style={{ fontWeight: "bold"}}>Moderno</option>
+            <option value="co" style={{ fontWeight: "bold"}}>Contemporaneo</option>
           </select>
         </div>
       ) : (
