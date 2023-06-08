@@ -14,7 +14,6 @@ const GetMusei = () => {
   const museiCollectionRef = collection(db, "musei");
 
   useEffect(() => {
-    calculateDistance();
     getMusei();
   }, [search]);
 
@@ -26,14 +25,15 @@ const GetMusei = () => {
         ...doc.data(),
         id: doc.id,
       }));
+      calculateDistance(filterData)
       setMuseiList(filterData);
     } catch (err) {
       console.log(err.errorMessage, err.errorCode);
     }
   };
 
-  const calculateDistance = () => {
-    museiList.map((el) => {
+  const calculateDistance = (list) => {
+    list.map((el) => {
       const latlon = el.cordinate.split(";");
       const dis = getPreciseDistance(
         { latitude: lat, longitude: lon },
