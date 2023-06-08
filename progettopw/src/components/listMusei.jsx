@@ -1,7 +1,12 @@
 import { GetMusei } from "./crud/crudMuseo";
+import Filter from "./filter";
 
 const ListMusei = () => {
-  return <GetMusei />;
+  return (
+      <div>
+        <GetMusei />
+      </div>
+  );
 };
 
 export { ListMusei };

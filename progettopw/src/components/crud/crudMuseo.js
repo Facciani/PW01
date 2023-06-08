@@ -5,12 +5,16 @@ import { SearchContext } from "../context/searchContext";
 import { YourLocationContext } from "../context/yourlocationContext";
 import { getDistance, getPreciseDistance } from "geolib";
 import { Link } from "react-router-dom";
+import Filter from "../filter";
+import {SearchResultContext} from "../context/searchResult";
 
 const GetMusei = () => {
-  const [museiList, setMuseiList] = useState([]);
 
   const { search, setSearch } = useContext(SearchContext);
+  const { searchResult, setSearchResult } = useContext(SearchResultContext);
   const { lat, lon } = useContext(YourLocationContext);
+
+
 
   const museiCollectionRef = collection(db, "musei");
 
@@ -27,7 +31,7 @@ const GetMusei = () => {
         id: doc.id,
       }));
       calculateDistance(filterData);
-      setMuseiList(filterData);
+      setSearchResult(filterData);
     } catch (err) {
       console.log(err.errorMessage, err.errorCode);
     }
@@ -45,19 +49,14 @@ const GetMusei = () => {
   };
 
   return (
+
     <div className="parent">
       <div className="div1">
-        <h3>FILTRI</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi autem
-          minima dolor deserunt sed nobis numquam aspernatur ullam, explicabo
-          vero assumenda laudantium itaque ex maxime voluptatum! Quo ipsam
-          nesciuntrepellat?
-        </p>
+        <Filter/>
       </div>
       <div className="div2">
         <div className="museumdiv">
-          {museiList.map((element) => (
+          {searchResult.map((element) => (
             <div className="tagricercamuseo">
               <p
                 style={{

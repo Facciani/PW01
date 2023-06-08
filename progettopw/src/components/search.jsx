@@ -20,6 +20,7 @@ const Search = () => {
               id="campo1"
               placeholder="City"
               className="input-field"
+              value={search}
               onChange={(event) => setSearch(event.target.value.toLowerCase())}
             />
           </div>
