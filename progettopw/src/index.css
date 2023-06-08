@@ -268,19 +268,22 @@ button:hover {
 
 /*--------------------*/
 
-.search-container {
-  display: flex;
-  padding: 2%;
+.parent {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.5fr 1.5fr 0.25fr;
+  grid-template-rows: 0.25fr repeat(2, 1fr) 0.25fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
-.search-filter {
-  width: 40%;
-  padding: 2%;
+.div1 {
+  grid-area: 2 / 2 / 3 / 3;
+  padding: 5%;
   background-color: #e7dbc5;
   border-radius: 10px;
 }
-
-.museum-search {
+.div2 {
+  grid-area: 2 / 4 / 4 / 5;
   display: flex;
   justify-content: cent;
   padding: 1%;
