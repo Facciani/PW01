@@ -4,6 +4,7 @@ import { db } from "../dbconfig/dbconfig";
 import { SearchContext } from "../context/searchContext";
 import { YourLocationContext } from "../context/yourlocationContext";
 import { getDistance, getPreciseDistance } from "geolib";
+import { Link } from "react-router-dom";
 
 const GetMusei = () => {
   const [museiList, setMuseiList] = useState([]);
@@ -25,7 +26,7 @@ const GetMusei = () => {
         ...doc.data(),
         id: doc.id,
       }));
-      calculateDistance(filterData)
+      calculateDistance(filterData);
       setMuseiList(filterData);
     } catch (err) {
       console.log(err.errorMessage, err.errorCode);
@@ -57,17 +58,31 @@ const GetMusei = () => {
       <div className="div2">
         <div className="museumdiv">
           {museiList.map((element) => (
-            <div
-              style={{
-                borderStyle: "solid",
-                borderColor: "black",
-                display: "inline-block",
-                padding: "2%",
-              }}
-            >
-              <p>Id: {element.id}</p>
-              <p>Nome: {element.nome}</p>
-              <p>Descrizione: {element.descrizione}</p>
+            <div className="tagricercamuseo">
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1.1em",
+                  textAlign: "center",
+                  padding: "1%",
+                }}
+              >
+                {element.nome}
+              </p>
+              <p style={{ fontWeight: "bold", padding: "2%" }}>
+                {element.descrizione}
+              </p>
+              <button className="buttdett">
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to={"/paginamuseo"}
+                >
+                  Dettagli
+                </Link>
+              </button>
             </div>
           ))}
         </div>

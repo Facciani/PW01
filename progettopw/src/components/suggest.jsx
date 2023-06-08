@@ -44,8 +44,7 @@ function Suggest() {
             <br></br>
             <p style={{ fontWeight: "bold" }}>
               Rappresenta la migliore sintesi dell'architettura civile
-              trecentesca cittadina ed è uno dei palazzi civici più conosciuti
-              nel mondo.
+              trecentesca cittadina ed è uno dei palazzi più conosciuti.
             </p>
             <button class="BottoneDettagli">Dettagli</button>
             <button class="BottoneSave">Salva tra i preferiti</button>
