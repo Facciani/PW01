@@ -279,9 +279,11 @@ button:hover {
 .div1 {
   grid-area: 2 / 2 / 3 / 3;
   padding: 5%;
+  max-height: 50%;
   background-color: #e7dbc5;
   border-radius: 20px;
 }
+
 .div2 {
   grid-area: 2 / 4 / 4 / 5;
   display: flex;
@@ -310,6 +312,46 @@ button:hover {
   background-color: #e7dbc5;
   max-width: 70%;
   margin-bottom: 10%;
+}
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+.custom-select {
+  width: 200px;
+  height: 40px;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-select:hover {
+  border-color: #999;
+}
+
+.custom-select:focus {
+  border-color: #555;
+}
+
+.custom-select option {
+  background-color: #fff;
+  color: #333;
 }
 
 /*-----suggest-------*/

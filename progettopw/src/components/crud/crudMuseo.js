@@ -6,15 +6,12 @@ import { YourLocationContext } from "../context/yourlocationContext";
 import { getDistance, getPreciseDistance } from "geolib";
 import { Link } from "react-router-dom";
 import Filter from "../filter";
-import {SearchResultContext} from "../context/searchResult";
+import { SearchResultContext } from "../context/searchResult";
 
 const GetMusei = () => {
-
   const { search, setSearch } = useContext(SearchContext);
   const { searchResult, setSearchResult } = useContext(SearchResultContext);
   const { lat, lon } = useContext(YourLocationContext);
-
-
 
   const museiCollectionRef = collection(db, "musei");
 
@@ -49,10 +46,9 @@ const GetMusei = () => {
   };
 
   return (
-
     <div className="parent">
       <div className="div1">
-        <Filter/>
+        <Filter />
       </div>
       <div className="div2">
         <div className="museumdiv">
