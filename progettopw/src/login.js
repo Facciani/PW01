@@ -8,6 +8,7 @@ import "../src/index.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberPassword, setRememberPassword] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -17,16 +18,20 @@ function Login() {
     setPassword(event.target.value);
   };
 
+  const handleRememberPasswordChange = (event) => {
+    setRememberPassword(event.target.checked);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Effettua l'elaborazione del login qui utilizzando email e password
+    // Effettua l'elaborazione del login qui utilizzando email, password e rememberPassword
   };
 
   return (
     <>
       <Header />
 
-      <div className="login-container">
+      <div className="login-container" style={{ backgroundColor: "#F6F4E5" }}>
         <form onSubmit={handleSubmit}>
           <h2>Login</h2>
           <div className="form-group">

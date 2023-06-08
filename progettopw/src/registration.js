@@ -13,6 +13,7 @@ const Registry = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsChecked, setTermsChecked] = useState(false);
   const [emailChecked, setEmailChecked] = useState(false);
+  const [rememberPasswordChecked, setRememberPasswordChecked] = useState(false);
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -42,6 +43,10 @@ const Registry = () => {
     setEmailChecked(!emailChecked);
   };
 
+  const handleRememberPasswordCheckedChange = () => {
+    setRememberPasswordChecked(!rememberPasswordChecked);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Esegui l'elaborazione della registrazione qui utilizzando i dati inseriti
@@ -51,7 +56,7 @@ const Registry = () => {
     <>
       <Header />
 
-      <div className="registration-container">
+      <div className="registration-container" style={{ marginTop: "50px", marginBottom: "50px" }}>
         <form onSubmit={handleSubmit}>
           <h2>Registrazione</h2>
           <div className="formreg-group">
@@ -61,6 +66,7 @@ const Registry = () => {
               value={firstName}
               onChange={handleFirstNameChange}
               required
+              style={{ width: "200px" }}
             />
           </div>
           <div className="form-group">
@@ -70,6 +76,7 @@ const Registry = () => {
               value={lastName}
               onChange={handleLastNameChange}
               required
+              style={{ width: "200px" }}
             />
           </div>
           <div className="form-group">
@@ -79,6 +86,7 @@ const Registry = () => {
               value={email}
               onChange={handleEmailChange}
               required
+              style={{ width: "200px" }}
             />
           </div>
           <div className="form-group">
@@ -88,6 +96,7 @@ const Registry = () => {
               value={password}
               onChange={handlePasswordChange}
               required
+              style={{ width: "200px" }}
             />
           </div>
           <div className="form-group">
@@ -97,6 +106,7 @@ const Registry = () => {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
               required
+              style={{ width: "200px" }}
             />
           </div>
           <div className="checkbox-group">
@@ -117,7 +127,16 @@ const Registry = () => {
               />
               Inviami email
             </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={rememberPasswordChecked}
+                onChange={handleRememberPasswordCheckedChange}
+              />
+              Ricorda password
+            </label>
           </div>
+          
           <button type="submit">Registrati</button>
         </form>
       </div>

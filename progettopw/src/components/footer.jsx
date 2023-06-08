@@ -24,9 +24,9 @@ function Footer() {
         <div className="footer-column">
           <h3>Social</h3>
           <ul>
-            <li>Instagram</li>
-            <li>Facebook</li>
-            <li>Linkedin</li>
+            <li>Instagram - MuseumArtDiscover_</li>
+            <li>Meta - MuseumArtDiscover_official</li>
+            <li>Linkedin - MuseumArtDiscover</li>
           </ul>
         </div>
       </div>
