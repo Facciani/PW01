@@ -50,6 +50,7 @@ const GetMusei = () => {
       <div className="div1">
         <Filter />
       </div>
+      <div className="div3">X Risultati di ricerca</div>
       <div className="div2">
         <div className="museumdiv">
           {searchResult.map((element) => (
