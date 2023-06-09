@@ -2,10 +2,12 @@ import {useState, useEffect, useContext} from "react";
 import {collection, query, getDocs, where } from "firebase/firestore";
 import {db} from "./dbconfig/dbconfig"
 import {SearchContext} from "./context/searchContext";
+import {YourLocationContext} from "./context/yourlocationContext";
 
 const Search = () => {
 
-  const { search, setSearch } = useContext(SearchContext);
+  const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
+  const { lat, lon } = useContext(YourLocationContext);
 
   return (
     <div className="form-container">
@@ -29,10 +31,13 @@ const Search = () => {
               DISTANZA
             </label>
             <input
-              type="text"
+              type="number"
               id="campo2"
               placeholder="Distance"
               className="input-field"
+              onChange={(event) => setSearchDistance(event.target.value)}
+              value={searchDistance}
+              disabled={lat === ""}
             />
           </div>
         </div>

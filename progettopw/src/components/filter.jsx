@@ -15,9 +15,9 @@ const Filter = () => {
   }, [searchResult]);
 
   return (
-    <div>
+    <>
       {isSet ? (
-        <div>
+        <div className="div1">
           <h3 style={{ fontWeight: "bold", fontSize: "1.1em" }} >FILTRI</h3>
           <p style={{ fontSize: "1.1em" }}>Tipologia di museo</p>
           <p>{isSet}</p>
@@ -30,7 +30,7 @@ const Filter = () => {
       ) : (
         <div></div>
       )}
-    </div>
+    </>
   );
 };
 
