@@ -39,9 +39,7 @@ function MuseumPage() {
           className="carousel-image background-left"
           src={
             images[
-              currentImageIndex === 0
-                ? images.length - 1
-                : currentImageIndex - 1
+              currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1
             ]
           }
           alt="Carousel"
@@ -55,9 +53,7 @@ function MuseumPage() {
           className="carousel-image background-right"
           src={
             images[
-              currentImageIndex === images.length - 1
-                ? 0
-                : currentImageIndex + 1
+              currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1
             ]
           }
           alt="Carousel"
@@ -65,6 +61,35 @@ function MuseumPage() {
         <button className="next-button" onClick={nextImage}>
           &gt;
         </button>
+      </div>
+      <div className="content-container">
+        <div className="left-content">
+          <h1>Galleria Uffizi</h1>
+          <p >Piazzale degli Uffizi, 6 055 294883</p>
+          <h3>Uffizi e boboli gratis il 4/09/2023</h3>
+          <p>Ingresso singolo al Giardino di Boboli.
+            Con il biglietto del Giardino di Boboli è possibile accedere
+            gratuitamente al Giardino di Villa Bardini.</p>
+          <h3>L’incontro con la grande arte d’Occidente. </h3>
+          <p>La collezione abbellisce i corridoi della Galleria
+             e comprende sculture romane antiche,copie da originali greci andati perduti.</p>
+          <h3>Florentine Cultural Weekend</h3>
+          <p>Tour privato degli Uffizi con il direttore SchmidtCene 
+            esclusive,visite a palazzo e altro ancora.</p>
+            <h3>Ciclo di conferenze presso l'Auditorium Vasari degli Uffizi. <br></br>ogni mercoledì alle ore 17.00</h3>
+            <p>Da Dante alla Cina, da Mantegna all’India, dall’archeologia al teatro e dalla letteratura alla storia dell’arte 
+              e alle scienze naturali: <br></br>mercoledì 14 settembre (ore 17) ripartono,
+             all’insegna della varietà tematica che da sempre li contraddistingue,<br></br>
+              i Dialoghi d’Arte e Cultura, ovvero i cicli di conferenze organizzati dalle Gallerie 
+              degli Uffizi.</p>
+        </div>
+        <div className="right-content">
+        <div className="right-interno">
+          <p style={{ fontWeight: "bold", fontSize: "19px" }}>Prenota un biglietto</p>
+           <button type="submit">Prenota</button>
+        </div>
+         
+       </div>
       </div>
       <Footer />
     </>

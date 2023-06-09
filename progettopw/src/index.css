@@ -232,7 +232,7 @@ button:hover {
   margin-bottom: 10px;
 }
 
-/*--------------------*/
+/*--------Pagina museo carosello e commenti------------*/
 
 .carosello-container {
   position: relative;
@@ -278,8 +278,48 @@ button:hover {
 .next-button {
   margin-left: 10%;
 }
+/*mostre*/
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 50px;
+  
+}
 
-/*--------------------*/
+.left-content {
+  width: 70%;
+
+}
+
+.left-content p {
+ font-size: 14px;
+}
+
+.left-content h3 {
+  font-size: 20px;
+ }
+
+.right-content {
+  width: 30%;
+  margin-top: 4%;
+
+}
+
+.right-interno {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #e7dbc5;
+  padding: 2%;
+  border-radius: 10px;
+  width: 50%;
+}
+
+
+/*--------griglia filter/risultati------------*/
 
 .parent {
   display: grid;
@@ -290,6 +330,7 @@ button:hover {
 }
 
 .div1 {
+  margin-top: 30px;
   grid-area: 2 / 2 / 3 / 3;
   padding: 5%;
   max-height: 70%;
@@ -348,7 +389,7 @@ button:hover {
 
 .custom-select {
   width: 40%;
-  height: 100%;
+  height: 40%;
   padding: 2%;
   font-size: 90%;
   border: 2px solid #ccc;
