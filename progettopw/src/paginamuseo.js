@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./components/header";
 //import Suggest from "./components/suggestt";
 import Footer from "./components/footer";
-
+import uffizi from "./components/img/uffizi.jpeg";
 import "../src/index.css";
 
 function MuseumPage() {
@@ -81,7 +81,7 @@ function MuseumPage() {
               e alle scienze naturali: <br></br>mercoledì 14 settembre (ore 17) ripartono,
              all’insegna della varietà tematica che da sempre li contraddistingue,<br></br>
               i Dialoghi d’Arte e Cultura, ovvero i cicli di conferenze organizzati dalle Gallerie 
-              degli Uffizi.</p>
+              degli Uffizi.</p> <br></br>
         </div>
         <div className="right-content">
         <div className="right-interno">
@@ -91,6 +91,12 @@ function MuseumPage() {
          
        </div>
       </div>
+      <div className="containerImmagini">
+      <p >ciao</p>
+      <div className="image-container">
+       </div>
+      </div>
+       
       <Footer />
     </>
   );

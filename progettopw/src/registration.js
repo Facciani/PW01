@@ -66,7 +66,7 @@ const Registry = () => {
               onChange={handleFirstNameChange}
               required
               style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Inserisci il nome"
+              placeholder="Nome"
             />
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
@@ -76,7 +76,7 @@ const Registry = () => {
               onChange={handleLastNameChange}
               required
               style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Inserisci il cognome"
+              placeholder="Cognome"
             />
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
@@ -86,7 +86,7 @@ const Registry = () => {
               onChange={handleEmailChange}
               required
               style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Inserisci l'email"
+              placeholder="Email"
             />
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
@@ -96,7 +96,7 @@ const Registry = () => {
               onChange={handlePasswordChange}
               required
               style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Inserisci la password"
+              placeholder="Password"
             />
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
@@ -106,7 +106,7 @@ const Registry = () => {
               onChange={handleConfirmPasswordChange}
               required
               style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Ripeti la password"
+              placeholder="Ripeti password"
             />
           </div>
           <div className="checkbox-group">
