@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Roboto:ital,wght@1,100&display=swap");
 @font-face {
-  font-family: "Space Grotesk";
+  /*font-family: "Space Grotesk";*/
+  font-family: "Nunito", sans-serif;
   src: url("./SpaceGrotesk-VariableFont_wght.ttf") format("woff2");
 }
 
@@ -76,6 +78,7 @@ nav {
 
 .form-label {
   font-weight: bold;
+  font-family: "Roboto", sans-serif;
 }
 
 .input-field {
@@ -151,6 +154,10 @@ li {
   align-items: center;
   height: 70vh;
 }
+.container {
+  font-family: "Nunito", sans-serif;
+  size: 40px;
+}
 
 form {
   width: 20%;
@@ -193,8 +200,14 @@ button {
   border-radius: 4px;
   background-color: #f77878;
   color: #fff;
-
+  font-family: "Roboto", sans-serif;
   margin-top: 10px;
+}
+#button-search {
+  display: flex;
+}
+.padding {
+  padding: 4px;
 }
 
 button:hover {

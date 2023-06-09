@@ -4,6 +4,7 @@ import {db} from "./dbconfig/dbconfig"
 import {SearchContext} from "./context/searchContext";
 import {YourLocationContext} from "./context/yourlocationContext";
 
+
 const Search = () => {
 
   const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
@@ -27,6 +28,7 @@ const Search = () => {
             />
           </div>
           <div className="form-field">
+          
             <label htmlFor="campo2" className="form-label">
               DISTANZA
             </label>

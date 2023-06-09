@@ -24,12 +24,16 @@ function Suggest() {
               Museo Egizio
             </p>
             <br></br>
+            <div class="padding">
             <p style={{ fontWeight: "bold" }}>
               Il Museo Egizio è il più antico museo del mondo dedicato
               interamente alla cultura egizia.
             </p>
+            </div>
+            <div id="button-search">
             <button class="BottoneDettagli">Dettagli</button>
             <button class="BottoneSave">Salva tra i preferiti</button>
+            </div>
           </div>
         </div>
 
@@ -46,8 +50,10 @@ function Suggest() {
               Rappresenta la migliore sintesi dell'architettura civile
               trecentesca cittadina ed è uno dei palazzi più conosciuti.
             </p>
+            <div id="button-search">
             <button class="BottoneDettagli">Dettagli</button>
             <button class="BottoneSave">Salva tra i preferiti</button>
+            </div>
           </div>
         </div>
 
@@ -64,8 +70,10 @@ function Suggest() {
               Un percorso storico e artisticoche da più di due secoli racconta
               Firenze attraverso i suoi grandi capolavori.
             </p>
+            <div id="button-search">
             <button class="BottoneDettagli">Dettagli</button>
             <button class="BottoneSave">Salva tra i preferiti</button>
+            </div>
           </div>
         </div>
       </div>
