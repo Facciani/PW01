@@ -283,8 +283,8 @@ button:hover {
 
 .parent {
   display: grid;
-  grid-template-columns: 0.25fr 1fr 0.5fr 1.5fr 0.25fr;
-  grid-template-rows: 0.25fr repeat(2, 1fr) 0.25fr;
+  grid-template-columns: 0.25fr 1fr 0.25fr 1fr 0.25fr;
+  grid-template-rows: 0.1fr 0.5fr 0.1fr 1fr 0.1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
@@ -292,24 +292,20 @@ button:hover {
 .div1 {
   grid-area: 2 / 2 / 3 / 3;
   padding: 5%;
-  max-height: 50%;
+  max-height: 70%;
   background-color: #e7dbc5;
   border-radius: 20px;
 }
-
-.div2 {
-  grid-area: 2 / 4 / 4 / 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1%;
-}
-
 .div3 {
-  grid-area: 1 / 4 / 4 / 5;
+  grid-area: 2 / 4 / 3 / 5;
   display: flex;
   justify-content: center;
-  padding: 1%;
+}
+.div2 {
+  grid-area: 4 / 2 / 5 / 5;
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
 }
 
 .buttdett {
@@ -328,10 +324,10 @@ button:hover {
   display: flex;
   display: inline-block;
   border-radius: 10px;
-  padding: 2%;
+  padding: 1%;
   background-color: #e7dbc5;
-  max-width: 70%;
-  margin-bottom: 10%;
+  max-width: 40%;
+  margin-left: 8%;
 }
 
 .dropbtn {
