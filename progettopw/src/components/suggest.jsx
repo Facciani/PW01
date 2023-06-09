@@ -7,8 +7,8 @@ import PWfoto3 from "../components/img/PWfoto3.jpeg";
 function Suggest() {
   return (
     <div class="container">
-      <h1 class="heading">Gli altri utenti suggeriscono anche...</h1>
-      <p style={{ fontSize: "1.4em" }} class="heading">
+      <h2 class="heading">Gli altri utenti suggeriscono anche...</h2>
+      <p style={{ fontSize: "1.1em" }} class="heading">
         Gli altri utenti ti suggeriscono anche
         <br />
         la lista di musei che trovi qua sotto

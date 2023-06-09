@@ -59,54 +59,54 @@ const Registry = () => {
       <div className="registration-container" style={{ marginTop: "50px", marginBottom: "50px" }}>
         <form onSubmit={handleSubmit}>
           <h2>Registrazione</h2>
-          <div className="formreg-group">
-            <label>Nome:</label>
+          <div className="formreg-group" style={{ marginBottom: "10px" }}>
             <input
               type="text"
               value={firstName}
               onChange={handleFirstNameChange}
               required
-              style={{ width: "200px" }}
+              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
+              placeholder="Inserisci il nome"
             />
           </div>
-          <div className="form-group">
-            <label>Cognome:</label>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="text"
               value={lastName}
               onChange={handleLastNameChange}
               required
-              style={{ width: "200px" }}
+              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
+              placeholder="Inserisci il cognome"
             />
           </div>
-          <div className="form-group">
-            <label>Email:</label>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="email"
               value={email}
               onChange={handleEmailChange}
               required
-              style={{ width: "200px" }}
+              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
+              placeholder="Inserisci l'email"
             />
           </div>
-          <div className="form-group">
-            <label>Password:</label>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="password"
               value={password}
               onChange={handlePasswordChange}
               required
-              style={{ width: "200px" }}
+              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
+              placeholder="Inserisci la password"
             />
           </div>
-          <div className="form-group">
-            <label>Ripeti Password:</label>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="password"
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
               required
-              style={{ width: "200px" }}
+              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
+              placeholder="Ripeti la password"
             />
           </div>
           <div className="checkbox-group">

@@ -29,7 +29,9 @@ function Footer() {
             <li>Linkedin - MuseumArtDiscover</li>
           </ul>
         </div>
+        
       </div>
+      <p>© 2023 MuseumArtDiscover.</p>
     </footer>
   );
 }
