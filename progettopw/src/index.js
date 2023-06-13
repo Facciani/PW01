@@ -12,6 +12,8 @@ import {ContaProvider, SearchContext, SearchProvider} from "./components/context
 import {YourLocationContext, YourLocationProvider} from "./components/context/yourlocationContext";
 import {SearchResultContext, SearchResultProvider} from "./components/context/searchResult";
 import {IdMuseoProvider} from "./components/context/idMuseoContext";
+import PaginaUtente from "./paginaUtente";
+import Paginaartista from "./paginaartista";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,15 @@ const router = createBrowserRouter([
     path: "/paginamuseo/:id",
     element: <Paginamuseo />,
   },
+  {
+    path: "/paginautente",
+    element: <PaginaUtente />,
+  },
+  {
+    path: "/paginaartista",
+    element: <Paginaartista />,
+  }
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

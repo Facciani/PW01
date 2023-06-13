@@ -2,7 +2,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import "../src/index.css";
 
-function paginaUtente {
+const PaginaUtente = () => {
    return (
     <>
     <Header />
@@ -14,5 +14,5 @@ function paginaUtente {
  )
 }
 
-export default paginaUtente
+export default PaginaUtente
 
