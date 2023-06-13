@@ -59,26 +59,27 @@ function Login() {
             {error}
         </div>
       <div className="login-container" style={{ backgroundColor: "#F6F4E5" }}>
-        <form onSubmit={handleSubmit}>
-          <h2>Login</h2>
-          <div className="form-group">
-            <label>Email:</label>
+      <form onSubmit={handleSubmit}>
+          <h2>Login </h2>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="email"
               value={email}
               onChange={handleEmailChange}
               required
+             
+              placeholder="Email"
             />
           </div>
-          <div className="form-group">
-            <label>Password:</label>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="password"
               value={password}
               onChange={handlePasswordChange}
               required
-            />
-          </div>
+             
+              placeholder="Password"
+            /> </div>
           <button type="submit">Accedi</button>
         </form>
       </div>

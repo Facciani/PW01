@@ -89,11 +89,24 @@ const Registry = () => {
           <h2>Registrazione</h2>
           <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
+              type="Nome"
+              required
+              placeholder="Inserisci nome"
+            />
+          </div>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
+            <input
+              type="Cognome"
+              required
+              placeholder="Inserisci cognome"
+            />
+          </div>
+          <div className="form-group" style={{ marginBottom: "10px" }}>
+            <input
               type="email"
               value={email}
               onChange={handleEmailChange}
               required
-              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
               placeholder="Email"
             />
           </div>
@@ -103,7 +116,6 @@ const Registry = () => {
               value={password}
               onChange={handlePasswordChange}
               required
-              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
               placeholder="Password"
             />
           </div>
@@ -113,7 +125,6 @@ const Registry = () => {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
               required
-              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
               placeholder="Ripeti password"
             />
           </div>
