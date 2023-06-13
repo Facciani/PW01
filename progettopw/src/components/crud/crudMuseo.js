@@ -9,6 +9,7 @@ import Filter from "../filter";
 import { SearchResultContext } from "../context/searchResult";
 import {IdMuseoContext} from "../context/idMuseoContext";
 
+
 const GetMusei = () => {
   const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
   const { searchResult, setSearchResult } = useContext(SearchResultContext);
@@ -128,21 +129,32 @@ const GetSpecificMuseo = () => {
     }
   };
 
-  return(
+  return (
     <>
-          <div style={{display: "flex"}}>
-            <div style={{borderStyle: "solid", borderColor:"black"}}>
-              <p>Nome: {museo.nome}</p>
-              <p>Descrizione: {museo.descrizione}</p>
-              <p>Città: {museo.citta}</p>
-              <p>Indirizzo: {museo.indirizzo}</p>
-              <p>Orari: {museo.orari}</p>
-              <p>Sito Web: {museo.sitoWeb}</p>
-              <p>Telefono: {museo.telefono}</p>
-            </div>
-          </div>
+      <p style={{ fontWeight: "bold", fontSize: "25px", marginLeft: "20px", marginBottom: "10px" }}>{museo.nome}</p>
+      <p style={{ fontWeight: "bold", fontSize: "18px", color: "#F45757", marginLeft: "20px", marginBottom: "10px" }}>{museo.indirizzo}, {museo.citta}</p>
+      <br />
+      <div style={{ display: "flex", marginBottom: "20px" }}>
+        <div
+          style={{
+            padding: "10px",
+            borderRadius: "10px",
+            backgroundColor: "#EFDBB5",
+          }}
+        >
+          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>{museo.descrizione}</p>
+          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Orari: {museo.orari}</p>
+          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Sito Web: {museo.sitoWeb}</p>
+          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Telefono: {museo.telefono}</p>
+        </div>
+      </div>
     </>
-  )
+  );
+  
+  
+  
+  
+  
 }
 
 export { GetMusei , GetSpecificMuseo};

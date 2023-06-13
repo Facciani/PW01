@@ -285,7 +285,9 @@ button:hover {
 
 .next-button {
   margin-left: 10%;
+  
 }
+
 /*mostre*/
 .content-container {
   display: flex;
@@ -310,7 +312,7 @@ button:hover {
 
 .right-content {
   width: 30%;
-  margin-top: 4%;
+  margin-top: 1.5%;
 
 }
 
@@ -320,10 +322,11 @@ button:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #e7dbc5;
+  background-color: #EFDBB5;
   padding: 2%;
   border-radius: 10px;
   width: 50%;
+  margin-top: 19%;
 }
 
 .containerImmagini {
@@ -334,13 +337,11 @@ button:hover {
   align-items: flex-start;
 }
 
-
-
 .image-container {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 20px;
-  
 }
 
 .image-container img {
@@ -349,6 +350,7 @@ button:hover {
   object-fit: cover;
   border-radius: 5px;
 }
+
 
 
 

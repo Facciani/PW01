@@ -85,9 +85,11 @@ function MuseumPage() {
        </div>
       </div>
       <div className="containerImmagini">
-      <p >ciao</p>
-      <div className="image-container">
-       </div>
+        <div className="image-container">
+          <img src="immagine1.jpg" alt="Immagine 1" />
+          <img src="immagine2.jpg" alt="Immagine 2" />
+         <img src="immagine3.jpg" alt="Immagine 3" />
+        </div>
       </div>
        
       <Footer />
