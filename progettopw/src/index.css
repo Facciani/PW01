@@ -58,9 +58,11 @@ nav {
 }
 
 .form-box {
-  background-color: #e7dbc5;
+  background-color: rgba(231, 219, 197, 0.7);
+  width: 25%;
   padding: 2%;
   border-radius: 10px;
+  
 }
 
 .form-row {
