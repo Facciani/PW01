@@ -14,6 +14,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -35,6 +36,7 @@ function Login() {
           const errCode = err.code;
           const errMessage = err.message;
           console.log(errCode, errMessage)
+            setError(err.message)
         })
   };
 
@@ -53,7 +55,9 @@ function Login() {
   return (
     <>
       <Header />
-
+        <div className="error-reg-container">
+            {error}
+        </div>
       <div className="login-container" style={{ backgroundColor: "#F6F4E5" }}>
         <form onSubmit={handleSubmit}>
           <h2>Login</h2>
