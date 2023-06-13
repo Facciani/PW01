@@ -1,27 +1,26 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
 
+import {createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+
+import{auth} from "./components/dbconfig/dbconfig";
+
 import "../src/index.css";
+import {useNavigate} from "react-router-dom";
 
 const Registry = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+
+  const navigate = useNavigate()
+
+  const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsChecked, setTermsChecked] = useState(false);
   const [emailChecked, setEmailChecked] = useState(false);
   const [rememberPasswordChecked, setRememberPasswordChecked] = useState(false);
-
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
-  };
-
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -47,38 +46,47 @@ const Registry = () => {
     setRememberPasswordChecked(!rememberPasswordChecked);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Esegui l'elaborazione della registrazione qui utilizzando i dati inseriti
+    if(password !== confirmPassword){
+      setError("Le due password non corrispondono")
+    }else{
+      await createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user
+            console.log(user)
+            navigate('/login')
+          })
+          .catch((err) => {
+            const errCode = err.code
+            const errMessage = err.message
+            console.log(errCode, errMessage)
+            setError(errMessage)
+          })
+    }
   };
+
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+        const email = user.email
+        console.log("email", email)
+        navigate("/paginautente")
+      }else{
+        console.log("none")
+      }
+    })
+  },[])
 
   return (
     <>
       <Header />
-
+      <div className="error-reg-container">
+        {error}
+      </div>
       <div className="registration-container" style={{ marginTop: "50px", marginBottom: "50px" }}>
         <form onSubmit={handleSubmit}>
           <h2>Registrazione</h2>
-          <div className="formreg-group" style={{ marginBottom: "10px" }}>
-            <input
-              type="text"
-              value={firstName}
-              onChange={handleFirstNameChange}
-              required
-              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Nome"
-            />
-          </div>
-          <div className="form-group" style={{ marginBottom: "10px" }}>
-            <input
-              type="text"
-              value={lastName}
-              onChange={handleLastNameChange}
-              required
-              style={{ width: "200px", border: "2px solid", padding: "10px", borderWidth: "2px" }}
-              placeholder="Cognome"
-            />
-          </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
               type="email"
@@ -110,7 +118,7 @@ const Registry = () => {
             />
           </div>
           <div className="checkbox-group">
-            <label>
+          <label>
               <input
                 type="checkbox"
                 checked={termsChecked}

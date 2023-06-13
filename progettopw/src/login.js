@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import Header from "./components/header";
-import Footer from "./components/footer";
+import Footer from "./components/footer"
+
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from "./components/dbconfig/dbconfig";
+import {onAuthStateChanged} from "firebase/auth";
 
 import "../src/index.css";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberPassword, setRememberPassword] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -18,14 +23,32 @@ function Login() {
     setPassword(event.target.value);
   };
 
-  const handleRememberPasswordChange = (event) => {
-    setRememberPassword(event.target.checked);
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    signInWithEmailAndPassword(auth,email,password)
+        .then((userCredential) => {
+          const user = userCredential
+          navigate("/paginautente")
+          console.log(user)
+        })
+        .catch((err) => {
+          const errCode = err.code;
+          const errMessage = err.message;
+          console.log(errCode, errMessage)
+        })
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Effettua l'elaborazione del login qui utilizzando email, password e rememberPassword
-  };
+    useEffect(()=>{
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                const email = user.email
+                console.log("email", email)
+                navigate("/paginautente")
+            }else{
+                console.log("none")
+            }
+        })
+    },[])
 
   return (
     <>

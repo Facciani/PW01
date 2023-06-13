@@ -154,6 +154,14 @@ li {
   align-items: center;
   height: 70vh;
 }
+
+.error-reg-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
 .container {
   font-family: "Nunito", sans-serif;
   size: 40px;
