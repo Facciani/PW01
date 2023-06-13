@@ -11,6 +11,7 @@ import Paginamuseo from "./paginamuseo";
 import {ContaProvider, SearchContext, SearchProvider} from "./components/context/searchContext";
 import {YourLocationContext, YourLocationProvider} from "./components/context/yourlocationContext";
 import {SearchResultContext, SearchResultProvider} from "./components/context/searchResult";
+import {IdMuseoProvider} from "./components/context/idMuseoContext";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
     element: <Registry />,
   },
   {
-    path: "/paginamuseo",
+    path: "/paginamuseo/:id",
     element: <Paginamuseo />,
   },
 ]);
@@ -36,7 +37,9 @@ root.render(
     <SearchProvider>
       <YourLocationProvider>
         <SearchResultProvider>
-          <RouterProvider router={router} />
+          <IdMuseoProvider>
+            <RouterProvider router={router} />
+          </IdMuseoProvider>
         </SearchResultProvider>
       </YourLocationProvider>
     </SearchProvider>

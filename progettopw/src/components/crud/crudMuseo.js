@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { collection, query, getDocs, where } from "firebase/firestore";
+import { collection, query, getDocs, where, doc, getDoc } from "firebase/firestore";
 import { db } from "../dbconfig/dbconfig";
 import { SearchContext } from "../context/searchContext";
 import { YourLocationContext } from "../context/yourlocationContext";
@@ -7,6 +7,7 @@ import { getDistance, getPreciseDistance } from "geolib";
 import { Link } from "react-router-dom";
 import Filter from "../filter";
 import { SearchResultContext } from "../context/searchResult";
+import {IdMuseoContext} from "../context/idMuseoContext";
 
 const GetMusei = () => {
   const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
@@ -91,7 +92,7 @@ const GetMusei = () => {
                     textDecoration: "none",
                     color: "white",
                   }}
-                  to={"/paginamuseo"}
+                  to={`/paginamuseo/${element.id}`}
                 >
                   Dettagli
                 </Link>
@@ -104,4 +105,44 @@ const GetMusei = () => {
   );
 };
 
-export { GetMusei };
+const GetSpecificMuseo = () => {
+
+  const { idMuseo, setIdMuseo } = useContext(IdMuseoContext);
+  const [museo, setMuseo] = useState([])
+
+  let museiCollectionRef = null;
+
+  useEffect(()=>{
+    if(idMuseo !== ""){
+      museiCollectionRef = doc(db, "musei", idMuseo);
+      getMuseiById()
+    }
+  },[idMuseo])
+
+  const getMuseiById = async () => {
+    try {
+      const docSnap = await getDoc(museiCollectionRef);
+      setMuseo(docSnap.data());
+    } catch (err) {
+      console.log(err.errorMessage, err.errorCode);
+    }
+  };
+
+  return(
+    <>
+          <div style={{display: "flex"}}>
+            <div style={{borderStyle: "solid", borderColor:"black"}}>
+              <p>Nome: {museo.nome}</p>
+              <p>Descrizione: {museo.descrizione}</p>
+              <p>Città: {museo.citta}</p>
+              <p>Indirizzo: {museo.indirizzo}</p>
+              <p>Orari: {museo.orari}</p>
+              <p>Sito Web: {museo.sitoWeb}</p>
+              <p>Telefono: {museo.telefono}</p>
+            </div>
+          </div>
+    </>
+  )
+}
+
+export { GetMusei , GetSpecificMuseo};
