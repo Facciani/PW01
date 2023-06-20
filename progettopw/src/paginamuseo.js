@@ -5,8 +5,10 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import uffizi from "./components/img/uffizi.jpeg";
 import "../src/index.css";
-import {GetSpecificMuseo} from "./components/crud/crudMuseo";
+import {GetSpecificMuseo, GetMuseoIMG} from "./components/crud/crudMuseo";
 import {IdMuseoContext} from "./components/context/idMuseoContext";
+
+
 
 function MuseumPage() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -41,40 +43,12 @@ function MuseumPage() {
   return (
     <>
       <Header />
-      <div className="carosello-container">
-        <button className="previous-button" onClick={previousImage}>
-          &lt;
-        </button>
-        <img
-          className="carousel-image background-left"
-          src={
-            images[
-              currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1
-            ]
-          }
-          alt="Carousel"
-        />
-        <img
-          className="carousel-image foreground"
-          src={images[currentImageIndex]}
-          alt="Carousel"
-        />
-        <img
-          className="carousel-image background-right"
-          src={
-            images[
-              currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1
-            ]
-          }
-          alt="Carousel"
-        />
-        <button className="next-button" onClick={nextImage}>
-          &gt;
-        </button>
-      </div>
+
+      <GetMuseoIMG/>
       <div className="content-container">
         <div className="left-content">
             <GetSpecificMuseo/>
+
         </div>
         <div className="right-content">
         <div className="right-interno">
@@ -86,12 +60,13 @@ function MuseumPage() {
       </div>
       <div className="containerImmagini">
         <div className="image-container">
+
           <img src="immagine1.jpg" alt="Immagine 1" />
           <img src="immagine2.jpg" alt="Immagine 2" />
          <img src="immagine3.jpg" alt="Immagine 3" />
         </div>
       </div>
-       
+
       <Footer />
     </>
   );

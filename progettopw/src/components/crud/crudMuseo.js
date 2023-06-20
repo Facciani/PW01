@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { collection, query, getDocs, where, doc, getDoc } from "firebase/firestore";
-import { db } from "../dbconfig/dbconfig";
+import { db, storage } from "../dbconfig/dbconfig";
 import { SearchContext } from "../context/searchContext";
 import { YourLocationContext } from "../context/yourlocationContext";
 import { getDistance, getPreciseDistance } from "geolib";
@@ -8,6 +8,11 @@ import { Link } from "react-router-dom";
 import Filter from "../filter";
 import { SearchResultContext } from "../context/searchResult";
 import {IdMuseoContext} from "../context/idMuseoContext";
+import {ref, getDownloadURL, listAll} from "firebase/storage"
+import "../../index.css"
+
+import {Fade, Slide} from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css'
 
 
 const GetMusei = () => {
@@ -120,7 +125,7 @@ const GetSpecificMuseo = () => {
     }
   },[idMuseo])
 
-  const getMuseiById = async () => {
+    const getMuseiById = async () => {
     try {
       const docSnap = await getDoc(museiCollectionRef);
       setMuseo(docSnap.data());
@@ -150,11 +155,65 @@ const GetSpecificMuseo = () => {
       </div>
     </>
   );
-  
-  
-  
-  
-  
 }
 
-export { GetMusei , GetSpecificMuseo};
+const GetMuseoIMG = () => {
+
+    const {idMuseo, setIdMuseo} = useContext(IdMuseoContext);
+
+    const [IMGurl, setIMGUrl] = useState([])
+
+    let museoIMGref = null
+
+    useEffect(() => {
+        if (idMuseo !== "") {
+          museoIMGref = ref(storage, `/${idMuseo}`)
+          downloadIMG()
+        }
+    }, [idMuseo])
+
+    const downloadIMG = () => {
+        listAll(museoIMGref)
+            .then((res)=>{
+              res.items.forEach((itemRef)=>{
+                getDownloadURL(ref(storage,itemRef.fullPath))
+                    .then((url)=>{
+                        console.log(url)
+                      setIMGUrl([...IMGurl, url])
+                        console.log(IMGurl)
+                    })
+              })
+            })
+
+    }
+
+    return (
+        <div className="slide-container">
+            <Slide>
+                {IMGurl.map((el)=>(
+                    <div className="each-slide-effect">
+                        <div style={{ 'backgroundImage': `url(${el})` }}>
+                            <span>Slide 1</span>
+                        </div>
+                    </div>
+                ))}
+            </Slide>
+        </div>
+    )
+}
+
+const spanStyle = {
+    padding: '20px',
+    background: '#efefef',
+    color: '#000000'
+}
+
+const divStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundSize: 'cover',
+    height: '400px'
+}
+
+export {GetMuseoIMG, GetMusei , GetSpecificMuseo};
