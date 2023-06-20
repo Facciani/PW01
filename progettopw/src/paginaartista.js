@@ -36,7 +36,7 @@ function ArtistPage() {
           </div>
           <div className="mostre2">
             <p>
-              Museo di Leonardo da Vinci - Aperto dal 07/08/2023 al 10/08/2023
+              Museo di Leonardo da Vinci - Aperto dal 18/10/2023 al 21/10/2023
             </p>
             <button>Acquisto biglietto</button>
           </div>
