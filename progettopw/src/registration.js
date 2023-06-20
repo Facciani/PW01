@@ -1,18 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "./components/dbconfig/dbconfig";
+import { useNavigate } from "react-router-dom";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-import {createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
-
-import{auth} from "./components/dbconfig/dbconfig";
-
 import "../src/index.css";
-import {useNavigate} from "react-router-dom";
 
 const Registry = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
@@ -48,58 +45,55 @@ const Registry = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(password !== confirmPassword){
-      setError("Le due password non corrispondono")
-    }else{
+    if (password !== confirmPassword) {
+      setError("Le due password non corrispondono");
+    } else {
       await createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user
-            console.log(user)
-            navigate('/login')
-          })
-          .catch((err) => {
-            const errCode = err.code
-            const errMessage = err.message
-            console.log(errCode, errMessage)
-            setError(errMessage)
-          })
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/login");
+        })
+        .catch((err) => {
+          const errCode = err.code;
+          const errMessage = err.message;
+          console.log(errCode, errMessage);
+          setError(errMessage);
+        });
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if(user){
-        const email = user.email
-        console.log("email", email)
-        navigate("/paginautente")
-      }else{
-        console.log("none")
+      if (user) {
+        const email = user.email;
+        console.log("email", email);
+        navigate("/paginautente");
+      } else {
+        console.log("none");
       }
-    })
-  },[])
+    });
+  }, []);
 
   return (
     <>
       <Header />
-      <div className="error-reg-container">
-        {error}
-      </div>
-      <div className="registration-container" style={{ marginTop: "50px", marginBottom: "50px" }}>
+      <div className="error-reg-container">{error}</div>
+      <div
+        className="registration-container"
+        style={{
+          marginTop: "50px",
+          marginBottom: "50px",
+          backgroundColor: "#F6F4E5",
+        }}
+      >
         <form onSubmit={handleSubmit}>
           <h2>Registrazione</h2>
           <div className="form-group" style={{ marginBottom: "10px" }}>
-            <input
-              type="Nome"
-              required
-              placeholder="Inserisci nome"
-            />
+            <input type="Nome" required placeholder="Inserisci nome" />
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
-            <input
-              type="Cognome"
-              required
-              placeholder="Inserisci cognome"
-            />
+            <input type="Cognome" required placeholder="Inserisci cognome" />
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
@@ -129,7 +123,7 @@ const Registry = () => {
             />
           </div>
           <div className="checkbox-group">
-          <label>
+            <label>
               <input
                 type="checkbox"
                 checked={termsChecked}
@@ -155,7 +149,7 @@ const Registry = () => {
               Ricorda password
             </label>
           </div>
-          
+
           <button type="submit">Registrati</button>
         </form>
       </div>
