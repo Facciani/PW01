@@ -11,8 +11,8 @@ import {IdMuseoContext} from "../context/idMuseoContext";
 import {ref, getDownloadURL, listAll} from "firebase/storage"
 import "../../index.css"
 
-import {Fade, Slide} from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
+// import {Fade, Slide} from 'react-slideshow-image';
+// import 'react-slideshow-image/dist/styles.css'
 
 
 const GetMusei = () => {
@@ -188,17 +188,18 @@ const GetMuseoIMG = () => {
     }
 
     return (
-        <div className="slide-container">
-            <Slide>
-                {IMGurl.map((el)=>(
-                    <div className="each-slide-effect">
-                        <div style={{ 'backgroundImage': `url(${el})` }}>
-                            <span>Slide 1</span>
-                        </div>
-                    </div>
-                ))}
-            </Slide>
-        </div>
+        <div></div>
+        /*<div className="slide-container">
+             <Slide>
+                 {IMGurl.map((el)=>(
+                     <div className="each-slide-effect">
+                         <div style={{ 'backgroundImage': `url(${el})` }}>
+                             <span>Slide 1</span>
+                         </div>
+                     </div>
+                 ))}
+             </Slide>
+         </div>*/
     )
 }
 
