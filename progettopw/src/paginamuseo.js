@@ -7,6 +7,7 @@ import uffizi from "./components/img/uffizi.jpeg";
 import "../src/index.css";
 import {GetSpecificMuseo, GetMuseoIMG} from "./components/crud/crudMuseo";
 import {IdMuseoContext} from "./components/context/idMuseoContext";
+import {GetMostre} from "./components/crud/crudMostre";
 
 
 
@@ -20,25 +21,6 @@ function MuseumPage() {
 
         setIdMuseo(info[2])
     },[])
-
-  const images = [
-    "https://picsum.photos/id/237/200/300",
-    "https://picsum.photos/seed/picsum/200/300",
-    "https://picsum.photos/200/300/?blur",
-    "https://picsum.photos/200/300.jpg",
-  ];
-
-  const previousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
   return (
     <>
@@ -58,14 +40,7 @@ function MuseumPage() {
          
        </div>
       </div>
-      <div className="containerImmagini">
-        <div className="image-container">
-
-          <img src="immagine1.jpg" alt="Immagine 1" />
-          <img src="immagine2.jpg" alt="Immagine 2" />
-         <img src="immagine3.jpg" alt="Immagine 3" />
-        </div>
-      </div>
+        <GetMostre/>
 
       <Footer />
     </>
