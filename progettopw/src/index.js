@@ -8,12 +8,23 @@ import MuseumPage from "./paginamuseo";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Paginamuseo from "./paginamuseo";
-import {ContaProvider, SearchContext, SearchProvider} from "./components/context/searchContext";
-import {YourLocationContext, YourLocationProvider} from "./components/context/yourlocationContext";
-import {SearchResultContext, SearchResultProvider} from "./components/context/searchResult";
-import {IdMuseoProvider} from "./components/context/idMuseoContext";
+import {
+  ContaProvider,
+  SearchContext,
+  SearchProvider,
+} from "./components/context/searchContext";
+import {
+  YourLocationContext,
+  YourLocationProvider,
+} from "./components/context/yourlocationContext";
+import {
+  SearchResultContext,
+  SearchResultProvider,
+} from "./components/context/searchResult";
+import { IdMuseoProvider } from "./components/context/idMuseoContext";
 import PaginaUtente from "./paginaUtente";
 import Paginaartista from "./paginaartista";
+import PaginaMostra from "./paginamostra";
 
 const router = createBrowserRouter([
   {
@@ -39,19 +50,22 @@ const router = createBrowserRouter([
   {
     path: "/paginaartista",
     element: <Paginaartista />,
-  }
-
+  },
+  {
+    path: "/paginamostra",
+    element: <PaginaMostra />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <SearchProvider>
-      <YourLocationProvider>
-        <SearchResultProvider>
-          <IdMuseoProvider>
-            <RouterProvider router={router} />
-          </IdMuseoProvider>
-        </SearchResultProvider>
-      </YourLocationProvider>
-    </SearchProvider>
+  <SearchProvider>
+    <YourLocationProvider>
+      <SearchResultProvider>
+        <IdMuseoProvider>
+          <RouterProvider router={router} />
+        </IdMuseoProvider>
+      </SearchResultProvider>
+    </YourLocationProvider>
+  </SearchProvider>
 );
