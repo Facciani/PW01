@@ -10,6 +10,8 @@ import { SearchResultContext } from "../context/searchResult";
 import {IdMuseoContext} from "../context/idMuseoContext";
 import {ref, getDownloadURL, listAll} from "firebase/storage"
 import "../../index.css"
+import async from "async";
+import {waitFor} from "@testing-library/react";
 
 // import {Fade, Slide} from 'react-slideshow-image';
 // import 'react-slideshow-image/dist/styles.css'
@@ -161,60 +163,27 @@ const GetMuseoIMG = () => {
 
     const {idMuseo, setIdMuseo} = useContext(IdMuseoContext);
 
-    const [IMGurl, setIMGUrl] = useState([])
-
     let museoIMGref = null
 
     useEffect(() => {
         if (idMuseo !== "") {
-          museoIMGref = ref(storage, `/${idMuseo}`)
-          downloadIMG()
+            museoIMGref = ref(storage, `/${idMuseo}`)
+            downloadIMG()
         }
     }, [idMuseo])
 
-    const downloadIMG = () => {
-        listAll(museoIMGref)
-            .then((res)=>{
-              res.items.forEach((itemRef)=>{
-                getDownloadURL(ref(storage,itemRef.fullPath))
-                    .then((url)=>{
-                        console.log(url)
-                      setIMGUrl([...IMGurl, url])
-                        console.log(IMGurl)
-                    })
-              })
-            })
-
+    const downloadIMG =  async () => {
+        const list = await listAll(museoIMGref);
+        for (const itemRef of list.items) {
+            const url = await getDownloadURL(ref(storage,itemRef.fullPath))
+            console.log(url)
+            document.getElementById("fotomain").src = url
+        }
     }
 
     return (
-        <div></div>
-        /*<div className="slide-container">
-             <Slide>
-                 {IMGurl.map((el)=>(
-                     <div className="each-slide-effect">
-                         <div style={{ 'backgroundImage': `url(${el})` }}>
-                             <span>Slide 1</span>
-                         </div>
-                     </div>
-                 ))}
-             </Slide>
-         </div>*/
+        <div><img id="fotomain"/></div>
     )
-}
-
-const spanStyle = {
-    padding: '20px',
-    background: '#efefef',
-    color: '#000000'
-}
-
-const divStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundSize: 'cover',
-    height: '400px'
 }
 
 export {GetMuseoIMG, GetMusei , GetSpecificMuseo};
