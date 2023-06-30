@@ -91,7 +91,42 @@ const PaginaUtente = () => {
     <img src={PWfoto3}></img>
     </div>
   </div>
-    
+  <div className="mini-divciao">
+  <h1>La tua attivita recente</h1>
+    </div>
+
+  <div className="info-containerBelloU2">
+  <div class="left-section scrollable-container">
+    <div class="scrollable-content">
+      <p><b>28/04/2023</b></p>
+      <p><b>Hai commentato: </b> Gli uffizi sono davvero fantastici! bella esperienza.</p>
+      <p><b>25/04/2023</b></p>
+      <p><b>Hai risposto a AleRicci01: </b> Ciao! il museo è attrezzato di un area ristoro per i visitatori, non occorre allontanarsi molto.</p>
+      <p><b>22/04/2023</b></p>
+      <p><b>Hai commentato: </b> Il museo egizio sempre bello.</p>
+      <p><b>21/04/2023</b></p>
+      <p><b>Hai commentato: </b> Visita consigliata, soprattutto in compagnia</p>
+      <p><b>15/04/2023</b></p>
+      <p><b>Hai messo like al commento di: AleFacc</b> </p>
+      <p><b>11/04/2023</b></p>
+      <p><b>Hai commentato: </b> Audio guida molto chiara. Non molto affollato, esperienza consigliata</p>
+      <p><b>06/04/2023</b></p>
+      <p><b>Hai commentato: </b> Gli uffizi sono davvero fantastici! bella esperienza.</p>
+      <p><b>01/04/2023</b></p>
+      <p><b>Hai messo like al commento di: Giacomo_Barza </b> </p>
+    </div>
+  </div>
+  <div class="rectangleU1">
+  <div class="right-sectionU2">
+    <h3>Info commenti</h3>
+    <p><b>commenti scritti:</b> 15</p>
+    <p><b>segnalazioni inviate:</b> 3</p>
+    <h3>Like inviati</h3>
+    <p><b>commenti scritti:</b> 15</p>
+  </div>
+</div>
+</div>
+
 
   <Footer />
 </>

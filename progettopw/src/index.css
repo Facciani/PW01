@@ -620,10 +620,6 @@ button:hover {
   text-align: center;
   margin: 0 auto;
 }
-.info-containerBello{
-  text-align: center;
-  margin: 0 auto;
-}
 
 .info-containerBello {
   display: flex;
@@ -669,11 +665,11 @@ button:hover {
 
 .cardU {
   width: 250px;
-  height: 230px;
+  height: 200px;
   background: rgb(255, 255, 255);
   margin: 10px;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 .cardU1 {
   width: 300px;
@@ -686,7 +682,7 @@ button:hover {
 
 .cardU h1 {
   text-align: center;
-  font-size: 14px;
+  font-size: 13.5px;
   color: black;
 }
 .cardU p {
@@ -697,5 +693,53 @@ button:hover {
 .cardU img {
   max-width: 100%;
   max-height: 100%;
+}
+/* Stile del contenitore scrollable */
+.scrollable-container {
+  
+  width: 500px;
+  height: 200px; 
+  overflow: auto; 
+  border: 1px solid #000000;
+  padding: 10px;
+  border-radius: 10px 0px 0 10px;
+}
+
+.scrollable-container p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-containerBelloU2{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  height: 300px;
+  margin-top: 20px;
+}
+.right-columnU2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: -60px;
+}
+
+.rectangleU1 {
+  height: 200px;
+  width: 200px; 
+  background-color: #EFDBB5;
+  padding: 10px;
+  border: 1px solid #000000;
+  overflow-wrap: break-word; 
+  border-radius: 0px 10px 10px 0;
+  
+}
+
+.right-sectionU2 {
+  color: rgb(0, 0, 0);
+  text-align: center;
 }
 
