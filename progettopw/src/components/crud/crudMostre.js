@@ -14,31 +14,43 @@ import "../../index.css"
 const GetMostre = () => {
     const {idMuseo, setIdMuseo} = useContext(IdMuseoContext);
     const [mostre, setMostre] = useState([])
+    const [temp, setTemp] = useState(null)
 
     let mostreCollectionRef = null;
 
-    const getMostreByMuseoID = async () => { 
+    const getMostreByMuseoID = async () => {
 
-        const q = query(mostreCollectionRef, where("idMuseo", "==", idMuseo));
+        const q = await query(mostreCollectionRef, where("idMuseo", "==", idMuseo));
         const data = await getDocs(q);
+        setTemp(data)
         const filterData = data.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id,
         }));
+        return filterData
 
-        console.log(filterData)
     }
 
     useEffect(()=>{
-        if(idMuseo !== ""){
-            mostreCollectionRef = collection(db, "musei-mostre");
-            getMostreByMuseoID()
-        }
-    },[idMuseo])
+
+        (async()=>{
+            if(!!idMuseo){
+                mostreCollectionRef = collection(db, "musei-mostre");
+                const dati = await Promise.all(await getMostreByMuseoID())
+                setMostre(dati)
+            }
+        })()
+
+    },)
 
     return (
         <div>
             {idMuseo}
+            {mostre.map((el)=>(
+                <>
+                    <p>{el.idMostra}</p>
+                </>
+            ))}
         </div>
     )
 }
