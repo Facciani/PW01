@@ -31,24 +31,43 @@ const GetMostre = () => {
 
     }
 
+    const getMostreByMostraID = async () => {
+
+        const data = await getDoc(mostreCollectionRef);
+        const filterData = data.data()
+        console.log(filterData)
+        return filterData
+
+    }
+
     useEffect(()=>{
 
         (async()=>{
             if(!!idMuseo){
                 mostreCollectionRef = collection(db, "musei-mostre");
                 const dati = await Promise.all(await getMostreByMuseoID())
-                setMostre(dati)
+
+                for (const el of dati) {
+                    console.log(el)
+                    mostreCollectionRef = doc(db, "mostre", el.idMostra);
+                    if(mostreCollectionRef !== undefined){
+                        const res = await getMostreByMostraID()
+                        if(res !== undefined){
+                            setMostre((v)=>[...v,res])
+                        }
+                    }
+
+                }
             }
         })()
 
-    },)
+    },[idMuseo])
 
     return (
         <div>
-            {idMuseo}
             {mostre.map((el)=>(
                 <>
-                    <p>{el.idMostra}</p>
+                    <p>{el.id} {el.nome} {el.descrizione} {el.dataInizio} {el.dataFine}</p>
                 </>
             ))}
         </div>
