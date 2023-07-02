@@ -17,15 +17,21 @@ function PaginaMostra() {
         setIdMostra(info[2])
     },[])
 
-  return (
-    <>
-      <Header />
-      <div class="container-mostra">
-        <GetSpecificMostra/>
-        <img src={imgpaginaMostra}></img>
-      </div>
-      <Footer />
-    </>
-  );
+    return (
+      <>
+        <Header />
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div class="container-mostra">
+            <img src={imgpaginaMostra} style={{ display: "block", margin: "0 auto 10px" }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div class="text-mostra">
+              <GetSpecificMostra />
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </>
+    );      
 }
 export default PaginaMostra;

@@ -584,7 +584,7 @@ button:hover {
 /*pagina mostra*/
 
 .container-mostra img {
-  order: 1;
+
   margin-bottom: 10px;
 }
 .container-mostra {
@@ -593,18 +593,16 @@ button:hover {
   align-items: center;
 }
 .text-mostra {
-  order: 2;
+
   margin-left: auto;
 }
 @media screen and (max-width: 600px) {
   .text-mostra {
-    order: 1;
     margin-left: 0;
     margin-bottom: 10px;
   }
 
   .container-mostra img {
-    order: 2;
     margin-left: 0;
   }
 }
