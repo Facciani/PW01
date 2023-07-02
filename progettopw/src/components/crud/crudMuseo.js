@@ -182,7 +182,13 @@ const GetMuseoIMG = () => {
     }
 
     return (
-        <div><img id="fotomain"/></div>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+      <img
+        id="fotomain"
+        alt="Museo"
+        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+      />
+    </div>
     )
 }
 

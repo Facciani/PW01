@@ -65,22 +65,47 @@ const GetMostre = () => {
     },[idMuseo])
 
     return (
-        <div>
-            {mostre.map((el)=>(
-                <>
-                    <p>{el.dati.nome} {el.dati.descrizione} {el.dati.dataInizio} {el.dati.dataFine}</p>
-                    <Link
-                        style={{
-                            textDecoration: "none",
-                        }}
-                        to={`/paginamostra/${el.id}`}
-                    >
-                        Dettagli
-                    </Link>
-                </>
-            ))}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          {mostre.map((el) => (
+            <div
+              key={el.id}
+              style={{
+                backgroundColor: "#EFDBB5",
+                border: "1px solid #000",
+                borderRadius: "8px",
+                padding: "16px",
+                margin: "8px",
+                textAlign: "center",
+                wordWrap: "break-word",
+                width: "300px", 
+                maxWidth: "100%", 
+              }}
+            >
+              <p style={{ fontSize: "1.2em" }}><b>{el.dati.nome}</b></p>
+              <p style={{ fontSize: "13px" }}><b>{el.dati.descrizione}</b></p>
+              
+              <p style={{ fontSize: "12px" }}>
+                {el.dati.dataInizio} - {el.dati.dataFine}
+              </p>
+              <Link
+                to={`/paginamostra/${el.id}`}
+                style={{
+                  textDecoration: "none",
+                  display: "inline-block",
+                  backgroundColor: "#f77878",
+                  color: "white",
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  marginTop: "16px",
+                }}
+              >
+                Dettagli
+              </Link>
+            </div>
+          ))}
         </div>
-    )
+      );
+      
 }
 
 const GetSpecificMostra = () => {

@@ -21,27 +21,20 @@ function MuseumPage() {
     },[])
 
   return (
-    <>
-      <Header />
+<>
+  <Header />
 
-      <GetMuseoIMG/>
-      <div className="content-container">
-        <div className="left-content">
-            <GetSpecificMuseo/>
-
-        </div>
-        <div className="right-content">
-        <div className="right-interno">
-          <p style={{ fontWeight: "bold", fontSize: "19px" }}>Prenota un biglietto</p>
-           <button type="submit">Prenota</button>
-        </div>
-         
-       </div>
-      </div>
-        <GetMostre/>
-
-      <Footer />
-    </>
+  <GetMuseoIMG/>
+  <div className="content-containerM">
+    <div className="divPoderoso">
+      <GetSpecificMuseo/>   
+        <p style={{ fontWeight: "bold", fontSize: "19px" }}>Prenota un biglietto</p>
+        <button type="submit">Prenota</button>
+    </div>
+  </div>
+  <GetMostre/>
+  <Footer />
+</>
   );
 }
 

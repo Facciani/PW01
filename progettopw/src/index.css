@@ -249,16 +249,16 @@ button:hover {
   max-height: 100%;
   margin: 0 10px;
   border-radius: 5%;
-  transition: transform 0.3s ease-in-out; /* Aggiunta transizione di trasformazione */
+  transition: transform 0.3s ease-in-out; 
 }
 
 .foreground {
-  transform: scale(1); /* Imposta la scala normale per l'immagine centrale */
+  transform: scale(1); 
 }
 
 .background-left,
 .background-right {
-  transform: scale(0.6); /* Riduce la scala delle immagini laterali */
+  transform: scale(0.6);
 }
 
 .previous-button,
@@ -279,49 +279,43 @@ button:hover {
 .next-button {
   margin-left: 10%;
 }
+
 /*mostre*/
-.content-container {
+.content-containerM {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 50px;
+
 }
 
-.left-content {
-  width: 70%;
+.divPoderoso{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto; 
 }
 
-.left-content p {
+.divPoderoso p {
   font-size: 14px;
 }
 
-.left-content h3 {
+.divPoderoso h3 {
   font-size: 20px;
 }
 
-.right-content {
-  width: 30%;
-  margin-top: 4%;
-}
-
-.right-interno {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #e7dbc5;
-  padding: 2%;
-  border-radius: 10px;
-  width: 50%;
+.divPoderoso button {
+  width: 10%;
 }
 
 .containerImmagini {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f8eedd;
   height: 400px;
   width: 100%;
-  display: flex;
-  align-items: flex-start;
 }
 
 .image-container {
