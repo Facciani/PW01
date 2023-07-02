@@ -1,9 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 
 import Header from "./components/header";
-//import Suggest from "./components/suggestt";
 import Footer from "./components/footer";
-import uffizi from "./components/img/uffizi.jpeg";
 import "../src/index.css";
 import {GetSpecificMuseo, GetMuseoIMG} from "./components/crud/crudMuseo";
 import {IdMuseoContext} from "./components/context/idMuseoContext";

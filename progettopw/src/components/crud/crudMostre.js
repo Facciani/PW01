@@ -10,6 +10,7 @@ import { SearchResultContext } from "../context/searchResult";
 import {IdMuseoContext} from "../context/idMuseoContext";
 import {ref, getDownloadURL, listAll} from "firebase/storage"
 import "../../index.css"
+import {IdMostraContext} from "../context/idMostraContext";
 
 const GetMostre = () => {
     const {idMuseo, setIdMuseo} = useContext(IdMuseoContext);
@@ -34,7 +35,7 @@ const GetMostre = () => {
     const getMostreByMostraID = async () => {
 
         const data = await getDoc(mostreCollectionRef);
-        const filterData = data.data()
+        const filterData = {dati: data.data(), id: data.id};
         console.log(filterData)
         return filterData
 
@@ -67,11 +68,62 @@ const GetMostre = () => {
         <div>
             {mostre.map((el)=>(
                 <>
-                    <p>{el.id} {el.nome} {el.descrizione} {el.dataInizio} {el.dataFine}</p>
+                    <p>{el.dati.nome} {el.dati.descrizione} {el.dati.dataInizio} {el.dati.dataFine}</p>
+                    <Link
+                        style={{
+                            textDecoration: "none",
+                        }}
+                        to={`/paginamostra/${el.id}`}
+                    >
+                        Dettagli
+                    </Link>
                 </>
             ))}
         </div>
     )
 }
 
-export {GetMostre}
+const GetSpecificMostra = () => {
+    const { idMostra, setIdMostra } = useContext(IdMostraContext);
+    const [mostra, setMostra] = useState([])
+
+    let mostreCollectionRef = null;
+
+    useEffect(()=>{
+        if(idMostra !== ""){
+            mostreCollectionRef = doc(db, "mostre", idMostra);
+            getMostreById()
+        }
+    },[idMostra])
+
+    const getMostreById = async () => {
+        try {
+            const docSnap = await getDoc(mostreCollectionRef);
+            setMostra(docSnap.data());
+        } catch (err) {
+            console.log(err.errorMessage, err.errorCode);
+        }
+    };
+
+    return (
+        <>
+            <p style={{ fontWeight: "bold", fontSize: "25px", marginLeft: "20px", marginBottom: "10px" }}>{mostra.nome}</p>
+            <br />
+            <div style={{ display: "flex", marginBottom: "20px" }}>
+                <div
+                    style={{
+                        padding: "10px",
+                        borderRadius: "10px",
+                        backgroundColor: "#EFDBB5",
+                    }}
+                >
+                    <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>{mostra.descrizione}</p>
+                    <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Data inizio: {mostra.dataInizio}</p>
+                    <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Data fine: {mostra.dataFine}</p>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export {GetMostre, GetSpecificMostra}
