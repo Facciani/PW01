@@ -14,15 +14,12 @@ const Filter = () => {
     }
   }, [searchResult]);
 
-  return (
-    <>
+    return (
+      <>
       {isSet ? (
-        <div className="div1">
-          <h3 style={{ fontWeight: "bold", fontSize: "1.3em" }}>FILTRI</h3>
-          <p style={{ fontSize: "1.1em", display: "inline-block" }}>
-            Tipologia di museo:
-          </p>
-          <select name="paese" className="custom-select" style={{ display: "inline-block", marginLeft: "10px", fontWeight: "bold" }}>
+        <div className="containerFiltro">
+          <p>Tipologia di museo:</p>
+          <select name="paese" className="custom-select">
             <option value="cl">Classico</option>
             <option value="mo">Moderno</option>
             <option value="co">Contemporaneo</option>
@@ -32,7 +29,8 @@ const Filter = () => {
         <div></div>
       )}
     </>
-  );
+    );
+
 };
 
 export default Filter;

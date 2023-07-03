@@ -69,45 +69,47 @@ const GetMusei = () => {
   return (
     <div className="parent">
       <Filter />
-
-      {searchResult.length !== 0 ? <div className="div3">{searchResult.length} Risultati di ricerca</div> : <div className="div3"></div>}
-
-      <div className="div2">
-        <div className="museumdiv">
-          {searchResult.map((element) => (
-            <div className="tagricercamuseo">
-              <p
+      <br></br>
+      {searchResult.length !== 0 ? (
+        <div  style={{ fontWeight: 'bold', fontSize: '18px' }} className="div3">{searchResult.length} Risultati di ricerca</div>
+      ) : (
+        <div className="div3"></div>
+      )}
+      <br></br>
+      <div className="museumdiv">
+        {searchResult.map((element) => (
+          <div className="tagricercamuseo" key={element.id}>
+            <p
+              style={{
+                fontWeight: "bold",
+                fontSize: "1.1em",
+                textAlign: "center",
+                padding: "1%",
+              }}
+            >
+              {element.nome}
+            </p>
+            <p style={{ fontWeight: "bold", padding: "2%" }}>
+              {element.descrizione}
+            </p>
+            <p style={{ fontWeight: "bold", padding: "2%" }}>
+              {!isNaN(element.distance)
+                ? `Distanza: ${element.distance} km`
+                : "Attivare la geolocalizzazione per conoscere la distanza"}
+            </p>
+            <button className="buttdett">
+              <Link
                 style={{
-                  fontWeight: "bold",
-                  fontSize: "1.1em",
-                  textAlign: "center",
-                  padding: "1%",
+                  textDecoration: "none",
+                  color: "white",
                 }}
+                to={`/paginamuseo/${element.id}`}
               >
-                {element.nome}
-              </p>
-              <p style={{ fontWeight: "bold", padding: "2%" }}>
-                {element.descrizione}
-              </p>
-              <p style={{ fontWeight: "bold", padding: "2%" }}>
-                <>
-                {!isNaN(element.distance) ? <> Distanza: {element.distance} km </> : <> Attivare la geolocalizzazione per conoscere la distanza </>}
-                </>
-              </p>
-              <button className="buttdett">
-                <Link
-                  style={{
-                    textDecoration: "none",
-                    color: "white",
-                  }}
-                  to={`/paginamuseo/${element.id}`}
-                >
-                  Dettagli
-                </Link>
-              </button>
-            </div>
-          ))}
-        </div>
+                Dettagli
+              </Link>
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

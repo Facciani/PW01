@@ -334,53 +334,39 @@ button:hover {
 /*--------griglia filter/risultati------------*/
 
 .parent {
-  display: grid;
-  grid-template-columns: 0.25fr 1fr 0.25fr 1fr 0.25fr;
-  grid-template-rows: 0.1fr 0.5fr 0.1fr 1fr 0.1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.div1 {
-  margin-top: 30px;
-  grid-area: 2 / 2 / 3 / 3;
-  padding: 5%;
-  max-height: 70%;
-  background-color: #e7dbc5;
-  border-radius: 20px;
-}
 .div3 {
-  grid-area: 2 / 4 / 3 / 5;
   display: flex;
   justify-content: center;
 }
-.div2 {
-  grid-area: 4 / 2 / 5 / 5;
+
+.museumdiv {
   display: flex;
-  flex-direction: row;
-  padding: 2%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 800px; 
 }
 
-.buttdett {
-  margin-left: 24%;
-  width: 50%;
-  padding: 2%;
-  font-size: 90%;
-  border-radius: 4px;
-  background-color: #f77878;
-  color: #fff;
 
-  margin-top: 10px;
+.buttdett {
+  margin-top: auto; 
+
 }
 
 .tagricercamuseo {
-  display: flex;
-  display: inline-block;
-  border-radius: 10px;
-  padding: 1%;
+  max-width: 300px; 
+  padding: 10px;
   background-color: #e7dbc5;
-  max-width: 40%;
-  margin-left: 8%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
 }
 
 .dropbtn {
@@ -398,6 +384,31 @@ button:hover {
 }
 
 /*filter*/
+
+.containerFiltro {
+  background-color: #e7dbc5; 
+  padding: 10px;
+  margin: 0; 
+  border-radius: 15px; 
+  margin-top: 30px;
+
+}
+
+.containerFiltro h3 {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.containerFiltro p {
+  font-size: 1.1em;
+  display: inline-block;
+}
+
+.containerFiltro select {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
+}
 
 .custom-select {
   width: 40%;
