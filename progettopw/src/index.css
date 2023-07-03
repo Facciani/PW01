@@ -138,12 +138,18 @@ ul {
 }
 
 .text-left {
-  text-align: left; /* Allinea il testo a sinistra */
+  text-align: left; 
 }
 
 li {
   margin-bottom: 5px;
   font-weight: bold;
+}
+
+.social-icon {
+  font-size: 1.5em; 
+  color: #555; 
+  margin-right: 10px; 
 }
 
 /*--------------------*/
