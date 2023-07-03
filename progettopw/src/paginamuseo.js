@@ -28,8 +28,7 @@ function MuseumPage() {
   <div className="content-containerM">
     <div className="divPoderoso">
       <GetSpecificMuseo/>   
-        <p style={{ fontWeight: "bold", fontSize: "19px" }}>Prenota un biglietto</p>
-        <button type="submit">Prenota</button>
+        <p style={{ fontWeight: "bold", fontSize: "19px" }}>Mostre disponibili</p>
     </div>
   </div>
   <GetMostre/>

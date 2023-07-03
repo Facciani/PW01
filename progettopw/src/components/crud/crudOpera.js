@@ -1,86 +1,108 @@
 import React, { useState, useEffect, useContext } from "react";
 import { collection, query, getDocs, where, doc, getDoc } from "firebase/firestore";
 import { db, storage } from "../dbconfig/dbconfig";
-import { SearchContext } from "../context/searchContext";
-import { YourLocationContext } from "../context/yourlocationContext";
-import { getDistance, getPreciseDistance } from "geolib";
 import { Link } from "react-router-dom";
-import Filter from "../filter";
-import { SearchResultContext } from "../context/searchResult";
-import {IdMuseoContext} from "../context/idMuseoContext";
-import {ref, getDownloadURL, listAll} from "firebase/storage"
-import "../../index.css"
-import {IdMostraContext} from "../context/idMostraContext";
+import { IdMostraContext } from "../context/idMostraContext";
+
+const Card = ({ nome, descrizione, genere, idArtista }) => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        border: "1px solid #000",
+        backgroundColor: "#EFDBB5",
+        padding: "10px",
+        borderRadius: "8px",
+        textAlign: "center",
+        width: "300px",
+        margin: "10px",
+      }}
+    >
+      <p style={{ fontSize: "15px" }}><b>{nome}</b></p>
+      <p style={{ fontSize: "15px", flex: 1 }}>{descrizione}</p>
+      <p style={{ fontSize: "14px" }}><b>Genere: </b>{genere}</p><br></br>
+      <button
+        style={{
+          fontSize: "14px",
+          padding: "8px 12px",
+          backgroundColor: "EFDBB5", 
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          margin: "0 auto", 
+        }}
+        onClick={() => {
+        }}
+      >
+        <Link
+          to={`/paginaartista/${idArtista}`}
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          Dettagli
+        </Link>
+      </button>
+    </div>
+  );
+
+const CardContainer = ({ opere }) => (
+  <div
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+    }}
+  >
+    {opere.map((el) => (
+      <Card
+        key={el.dati.idArtista}
+        nome={el.dati.nome}
+        descrizione={el.dati.descrizione}
+        genere={el.dati.genere}
+        idArtista={el.dati.idArtista}
+      />
+    ))}
+  </div>
+);
 
 const GetOpere = () => {
-    const {idMostra, setMostra} = useContext(IdMostraContext);
-    const [opere, setOpere] = useState([])
-    const [temp, setTemp] = useState(null)
+  const { idMostra } = useContext(IdMostraContext);
+  const [opere, setOpere] = useState([]);
 
-    let opereCollectionRef = null;
+  const getOpereByMostraID = async () => {
+    const opereCollectionRef = collection(db, "opere-mostre");
+    const q = query(opereCollectionRef, where("idMostra", "==", idMostra));
+    const data = await getDocs(q);
+    const filterData = data.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    return filterData;
+  };
 
-    const getOpereByMostraID = async () => {
-        const q = await query(opereCollectionRef, where("idMostra", "==", idMostra));
-        const data = await getDocs(q);
+  const getOpereByOperaID = async (idOpera) => {
+    const opereCollectionRef = doc(db, "opere", idOpera);
+    const data = await getDoc(opereCollectionRef);
+    const filterData = { dati: data.data(), id: data.id };
+    return filterData;
+  };
 
+  useEffect(() => {
+    (async () => {
+      if (!!idMostra) {
+        const dati = await Promise.all(await getOpereByMostraID());
 
-        setTemp(data)
-        const filterData = data.docs.map((doc) => ({
-            ...doc.data(),
-            id: doc.id,
-        }));
-        return filterData
+        for (const el of dati) {
+          const res = await getOpereByOperaID(el.idOpera);
+          if (res !== undefined) {
+            setOpere((v) => [...v, res]);
+          }
+        }
+      }
+    })();
+  }, [idMostra]);
 
-    }
+  return <CardContainer opere={opere} />;
+};
 
-    const getOpereByOperaID = async () => {
-
-        const data = await getDoc(opereCollectionRef);
-        const filterData = {dati: data.data(), id: data.id};
-        return filterData
-
-    }
-
-    useEffect(()=>{
-
-        (async()=>{
-            if(!!idMostra){
-                opereCollectionRef = collection(db, "opere-mostre");
-                const dati = await Promise.all(await getOpereByMostraID())
-
-                //console.log(dati)
-
-                for (const el of dati) {
-                    opereCollectionRef = doc(db, "opere", el.idOpera);
-                    if(opereCollectionRef !== undefined){
-                        const res = await getOpereByOperaID()
-                        if(res !== undefined){
-                            setOpere((v)=>[...v,res])
-                        }
-                    }
-
-                }
-            }
-        })()
-
-    },[idMostra])
-
-    return (
-        <>
-            {opere.map((el)=>(
-                <p>{el.dati.nome} {el.dati.descrizione} {el.dati.genere}
-
-                    <Link
-                        to={`/paginaartista/${el.dati.idArtista}`}
-                    >
-                        Dettagli
-                    </Link>
-
-                </p>
-
-            ))}
-        </>
-    )
-}
-
-export {GetOpere}
+export { GetOpere };

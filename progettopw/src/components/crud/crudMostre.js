@@ -131,25 +131,44 @@ const GetSpecificMostra = () => {
     };
 
     return (
-        <>
-            <p style={{ fontWeight: "bold", fontSize: "25px", marginLeft: "20px", marginBottom: "10px" }}>{mostra.nome}</p>
-            <br />
-            <div style={{ display: "flex", marginBottom: "20px" }}>
-                <div
-                    style={{
-                        padding: "10px",
-                        borderRadius: "10px",
-                        backgroundColor: "#EFDBB5",
-                    }}
-                >
-                    <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>{mostra.descrizione}</p>
-                    <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Data inizio: {mostra.dataInizio}</p>
-                    <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Data fine: {mostra.dataFine}</p>
-                </div>
-                {mostra.info}
+<>
+  <p style={{ fontWeight: "bold", fontSize: "25px", textAlign: "center", marginBottom: "10px" }}>
+    {mostra.nome}
+  </p>
+  <br />
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginBottom: "20px"
+    }}
+  >
+    <div
+      style={{
+        padding: "10px",
+        borderRadius: "10px",
+        backgroundColor: "#EFDBB5",
+        textAlign: "center"
+      }}
+    >
+      <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+        {mostra.descrizione}
+      </p>
+      <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+        Data inizio: {mostra.dataInizio}
+      </p>
+      <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+        Data fine: {mostra.dataFine}
+      </p>
+      <p style={{ maxWidth: "550px", wordWrap: "break-word", fontSize: "14px"}}>
+        {mostra.info}
+      </p>
+    </div>
+  </div>
+</>
 
-            </div>
-        </>
+      
     );
 }
 
