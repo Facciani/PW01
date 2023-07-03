@@ -5,6 +5,7 @@ import imgpaginaMostra from "../src/components/img/imgpaginaMostra.jpeg";
 import {useContext, useEffect, useState} from "react";
 import {GetSpecificMostra} from "./components/crud/crudMostre"
 import {IdMostraContext} from "./components/context/idMostraContext";
+import {GetOpere} from "./components/crud/crudOpera";
 
 function PaginaMostra() {
 
@@ -27,6 +28,7 @@ function PaginaMostra() {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div class="text-mostra">
               <GetSpecificMostra />
+                <GetOpere/>
             </div>
           </div>
         </div>

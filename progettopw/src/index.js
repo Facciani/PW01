@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element: <PaginaUtente />,
   },
   {
-    path: "/paginaartista",
+    path: "/paginaartista/:id",
     element: <Paginaartista />,
   },
   {

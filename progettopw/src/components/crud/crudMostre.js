@@ -146,6 +146,8 @@ const GetSpecificMostra = () => {
                     <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Data inizio: {mostra.dataInizio}</p>
                     <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Data fine: {mostra.dataFine}</p>
                 </div>
+                {mostra.info}
+
             </div>
         </>
     );
