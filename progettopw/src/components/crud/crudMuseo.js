@@ -12,21 +12,28 @@ import {ref, getDownloadURL, listAll} from "firebase/storage"
 import "../../index.css"
 import async from "async";
 import {waitFor} from "@testing-library/react";
+import {FilterContext} from "../context/filterContext";
 
 // import {Fade, Slide} from 'react-slideshow-image';
 // import 'react-slideshow-image/dist/styles.css'
 
 
 const GetMusei = () => {
-  const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
-  const { searchResult, setSearchResult } = useContext(SearchResultContext);
-  const { lat, lon } = useContext(YourLocationContext);
+    const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
+    const { searchResult, setSearchResult } = useContext(SearchResultContext);
+    const { lat, lon } = useContext(YourLocationContext);
+    const {filter , setFilter} = useContext(FilterContext)
 
   const museiCollectionRef = collection(db, "musei");
 
   useEffect(() => {
     getMuseiByCity();
-  }, [search, searchDistance]);
+    console.log(filter)
+  }, [search, searchDistance, filter]);
+
+  useEffect(()=>{
+      setFilter("none")
+  },[search,searchDistance])
 
   const getMuseiByCity = async () => {
     try {
@@ -39,11 +46,28 @@ const GetMusei = () => {
       }));
 
       const final = filterDistance(filterData);
-      setSearchResult(final);
+      const final2 = filterType(final)
+      setSearchResult(final2);
     } catch (err) {
       console.log(err.errorMessage, err.errorCode);
     }
   };
+
+    const filterType = (list) => {
+        if(filter === "none"){
+            return list
+        }else{
+            console.log(searchDistance)
+            let newList = [];
+            list.forEach((el) => {
+                if(el.genere === filter){
+                    newList = [...newList, el]
+                    console.log("Ciao")
+                }
+            })
+            return newList
+        }
+    }
 
   const filterDistance = (list) => {
     console.log(searchDistance)

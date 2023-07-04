@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { SearchResultContext } from "./context/searchResult";
+import {FilterContext} from "./context/filterContext";
 
 const Filter = () => {
   const { searchResult, setSearchResult } = useContext(SearchResultContext);
+
+  const {filter , setFilter} = useContext(FilterContext)
 
   const [isSet, setisSet] = useState(false);
 
@@ -14,15 +17,22 @@ const Filter = () => {
     }
   }, [searchResult]);
 
+
+
     return (
       <>
       {isSet ? (
         <div className="containerFiltro">
           <p>Tipologia di museo:</p>
-          <select name="paese" className="custom-select">
-            <option value="cl">Classico</option>
-            <option value="mo">Moderno</option>
-            <option value="co">Contemporaneo</option>
+          <select className="custom-select" name="paese"
+              onChange={(e)=>{
+                const selectedFood = e.target.value;
+                setFilter(selectedFood);
+              }}>
+            <option value="none"></option>
+            <option value="classico">Classico</option>
+            <option value="moderno">Moderno</option>
+            <option value="contemporaneo">Contemporaneo</option>
           </select>
         </div>
       ) : (
