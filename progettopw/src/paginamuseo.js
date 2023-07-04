@@ -28,21 +28,6 @@ function MuseumPage() {
   <div className="content-containerM">
     <div className="divPoderoso">
       <GetSpecificMuseo />    
-
-<button
-  /*onClick={funzione sgrava che devi mettere tu <3} */
-  style={{
-    backgroundColor: "#f45757",
-    color: "white",
-    borderRadius: "5px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-    cursor: "pointer",
-  }}
->
-  Aggiungi ai Preferiti
-</button>
       <p style={{ fontWeight: "bold", fontSize: "19px" }}>Mostre disponibili</p>
     </div>
   </div>
