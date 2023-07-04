@@ -50,14 +50,61 @@ const SetRecensione = () => {
         })
     }
 
+    const divStyleRecensioni= {
+        textAlign: 'center',
+        margin: '20px', 
+        backgroundColor: '#EFDBB5',
+      };
 
     //per modificare schermata recensione
     const style = {
         content: {
-            height: '40%',
-            width: '40%',
-        }
-    };
+          height:"200px",
+          width: '500px',
+          border: '2px solid black',
+          borderRadius: '10px',
+          backgroundColor: '#EFDBB5',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          margin: '0 auto',
+          padding: '20px',
+        },
+        input: {
+            marginBottom: '20px',
+            width: '200px',
+            border: '1px solid black',
+            borderRadius: '5px',
+            padding: '5px', 
+        },
+        button: {
+          marginTop: '10px',
+        },
+      };
+      
+      const Component = () => {
+        return (
+          <div style={style.content}>
+            <input
+  style={{ ...style.input, width: '80px' }}
+  type="number"
+  placeholder="voto"
+  onChange={(v) => setVoto(Number(v.target.value))}
+/>
+<input
+  style={{ ...style.input, width: '120px', color: 'red' }}
+  type="text"
+  placeholder="commento"
+  onChange={(v) => setDesc(v.target.value)}
+/>
+            <button style={style.button} onClick={aggiungi}>
+              Invia
+            </button>
+          </div>
+        );
+      };
+      
 
     return(
         <>
@@ -82,8 +129,9 @@ const SetRecensione = () => {
                         onRequestClose={() => setIsOpen(false)}
                         style={style}
                     >
-                        <input type={"number"} placeholder={"voto"} onChange={(v)=>(setVoto(Number(v.target.value)))}/>
-                        <input type={"text"} placeholder={"commento"} onChange={(v)=>(setDesc(v.target.value))}/>
+                        <input style={{marginBottom: "20px", width: "200px"}}type={"number"} placeholder={"voto"} onChange={(v)=>(setVoto(Number(v.target.value)))}/>
+                        <input style={{marginBottom: "20px", width: "200px"}}type="text"placeholder="commento" onChange={(v) => setDesc(v.target.value)}
+      />
                         <button onClick={aggiungi}>Invia</button>
                     </ReactModal>
                 </> :
@@ -101,10 +149,16 @@ const SetRecensione = () => {
                 >
                     Loggarsi per poter aggiungere una recensione
                 </button>}
+                
             <>
-                {rec.map((el)=>(
-                    <p>{el.email} {el.voto} {el.commento}</p>
-                ))}
+            <div style={{textAlign: "left", margin: "10px", border: "1px solid black", backgroundColor: "#EFDBB5", borderRadius: "10px"}}>
+                <div style={{marginLeft:"20px", margin: "25px"}}>
+                    <h3>commenti</h3>
+                    {rec.map((el)=>(
+                    <p style={{}}><b>{el.email}</b> {el.voto} {el.commento}</p>
+                    ))}
+                </div>
+            </div>
             </>
         </>
     )
