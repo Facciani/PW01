@@ -6,6 +6,8 @@ import { useContext, useEffect, useState } from "react";
 import { GetMostraIMG, GetSpecificMostra } from "./components/crud/crudMostre";
 import { IdMostraContext } from "./components/context/idMostraContext";
 import { GetOpere } from "./components/crud/crudOpera";
+import {SetPreferito} from "./components/crud/crudPreferiti";
+import {SetRecensione} from "./components/crud/crudRecensioni";
 
 function PaginaMostra() {
   const { idMostra, setIdMostra } = useContext(IdMostraContext);
@@ -28,39 +30,11 @@ function PaginaMostra() {
           <div class="text-mostra">
             <GetSpecificMostra />
             <div style={{ textAlign: "center" }}>
-              <button
-                /* onClick={funzione sgrava che devi mettere tu <3} */
-                style={{
-                  backgroundColor: "#f45757",
-                  color: "white",
-                  borderRadius: "5px",
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                  cursor: "pointer",
-                  width: "150px",
-                }}
-              >
-                Aggiungi ai Preferiti
-              </button>
+              <SetPreferito/>
             </div>
             <GetOpere />
             <div style={{ textAlign: "center" }}>
-              <button
-                /* onClick={funzione sgrava che devi mettere tu <3} */
-                style={{
-                  backgroundColor: "#f45757",
-                  color: "white",
-                  borderRadius: "5px",
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                  cursor: "pointer",
-                  width: "120px",
-                }}
-              >
-                Aggiungi recensione
-              </button>
+            <SetRecensione/>
             </div>
           </div>
         </div>
