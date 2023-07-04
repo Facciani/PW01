@@ -41,7 +41,7 @@ function MuseumPage() {
     cursor: "pointer",
   }}
 >
-  Bottone Rosso
+  Aggiungi ai Preferiti
 </button>
       <p style={{ fontWeight: "bold", fontSize: "19px" }}>Mostre disponibili</p>
     </div>
@@ -49,7 +49,7 @@ function MuseumPage() {
   <div style={{ position: "relative" }}>
     <GetMostre />
 
-  </div>
+  </div>    
   <Footer />
 </>
   );

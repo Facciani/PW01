@@ -101,6 +101,7 @@ const GetMostre = () => {
                 Dettagli
               </Link>
             </div>
+            
           ))}
         </div>
       );
