@@ -1,8 +1,7 @@
 import React from "react";
-import prova from "../components/img/prova.jpeg";
-import PWfoto from "../components/img/PWfoto.jpeg";
-import PWfoto2 from "../components/img/PWfoto2.jpeg";
-import PWfoto3 from "../components/img/PWfoto3.jpeg";
+import Foto1 from "../components/img/Foto1.jpeg";
+import millu from "../components/img/Foto3.jpeg";
+import foto3 from "../components/img/11.jpg";
 
 function Suggest() {
   return (
@@ -17,67 +16,53 @@ function Suggest() {
       <div class="card-container">
         <div class="card">
           <div class="top-section">
-            <img src={PWfoto}></img>
+            <img src={Foto1}></img>
           </div>
           <div class="bottom-section">
             <p style={{ fontWeight: "bold", fontSize: "1.1em" }}>
-              Museo Egizio
+            Museo Civico di Storia Naturale di Milano
             </p>
             <br></br>
             <div class="padding">
             <p style={{ fontWeight: "bold" }}>
-              Il Museo Egizio è il più antico museo del mondo dedicato
-              interamente alla cultura egizia.
+            Edificio del XIX secolo in cui sono esposti minerali, fossili, scheletri e animali imbalsamati.
             </p>
-            </div>
-            <div id="button-search">
-            <button class="BottoneDettagli">Dettagli</button>
-            <button class="BottoneSave">Salva tra i preferiti</button>
             </div>
           </div>
         </div>
 
         <div class="card">
           <div class="top-section">
-            <img src={PWfoto2}></img>
+            <img src={millu}></img>
           </div>
           <div class="bottom-section">
             <p style={{ fontWeight: "bold", fontSize: "1.1em" }}>
-              Palazzo Vecchio
+            Museo delle illusioni
             </p>
             <br></br>
             <p style={{ fontWeight: "bold" }}>
-              Rappresenta la migliore sintesi dell'architettura civile
-              trecentesca cittadina ed è uno dei palazzi più conosciuti.
+            Museo per famiglie dedicato alle illusioni ottiche, con mostre di ologrammi e specchi.
             </p>
-            <div id="button-search">
-            <button class="BottoneDettagli">Dettagli</button>
-            <button class="BottoneSave">Salva tra i preferiti</button>
-            </div>
           </div>
         </div>
 
         <div class="card">
           <div class="top-section">
-            <img src={PWfoto3}></img>
+            <img src={foto3}></img>
           </div>
           <div class="bottom-section">
             <p style={{ fontWeight: "bold", fontSize: "1.1em" }}>
-              Galleria dell’Accademia, Firenze
+              Museo Civico Medievale
             </p>
             <br></br>
             <p style={{ fontWeight: "bold" }}>
-              Un percorso storico e artisticoche da più di due secoli racconta
-              Firenze attraverso i suoi grandi capolavori.
+            Museo ospitato in un palazzo del XV secolo con collezioni di bronzi, armature e libri liturgici medievali.
             </p>
-            <div id="button-search">
-            <button class="BottoneDettagli">Dettagli</button>
-            <button class="BottoneSave">Salva tra i preferiti</button>
+
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

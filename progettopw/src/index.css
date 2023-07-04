@@ -509,39 +509,9 @@ button:hover {
   padding: 10px;
   text-align: center;
   background-color: #e7dbc5;
+  
 }
 
-.BottoneSave {
-  background-color: #e7dbc5;
-  border-radius: 3px;
-  display: inline-block;
-  cursor: pointer;
-  color: #000000;
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 5px 5px;
-  text-decoration: none;
-  margin-right: 5px;
-}
-.BottoneSave:hover {
-  background-color: #f45757;
-}
-.BottoneDettagli {
-  background-color: #ffffff;
-  border-radius: 3px;
-  display: inline-block;
-  cursor: pointer;
-  color: #000000;
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 9px 18px;
-  text-decoration: none;
-}
-.BottoneDettagli:hover {
-  background-color: #f45757;
-}
 
 /*pagina artista*/
 
