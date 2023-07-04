@@ -10,44 +10,86 @@ import Avatar from "../src/components/img/Avatar.png";
 import PWfoto from "../src/components/img/PWfoto.jpeg";
 import PWfoto2 from "../src/components/img/PWfoto2.jpeg";
 import PWfoto3 from "../src/components/img/PWfoto3.jpeg";
-import {collection, getDocs, query, where} from "firebase/firestore";
+import {collection, getDocs, doc, query, where, getDoc} from "firebase/firestore";
+import {unstable_batchedUpdates} from "react-dom";
+import async from "async";
 
 const PaginaUtente = () => {
 
   const [utente, setUtente] = useState({})
-  const [rec, setRec] = useState([])
+  const [emailU, setEmailU] = useState("")
   const navigate = useNavigate();
 
-  useEffect(()=>{
-      onAuthStateChanged(auth, (user) => {
-          if(user){
-            setUtente(user.email)
-          }else{
-            console.log("none")
-            navigate("/login")
-          }
-      })
-      setUtenteInto()
-      getMostreByRecensioni()
-  },[])
+  const [resultRec, setResultRec] = useState([])
+  const [resultPre, setResultPre] = useState([])
+
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("onAuthStateChanged",user.email)
+        setEmailU(user.email)
+      } else {
+        navigate("/login")
+      }
+    })
+    setUtenteInto()
+    getMostreByRecensioni()
+    getMostreByPreferiti()
+  },[emailU])
 
   const getMostreByRecensioni = async (email) => {
-    const q = query(collection(db, "recensioni"),where("email","==",utente));
+    console.log("getMostreByRecensioni",emailU)
+
+    const q = query(collection(db, "recensioni"),where("email","==",emailU));
     const querySnapshot = await getDocs(q);
-    setRec([])
-    querySnapshot.forEach((document) => {
-      setRec(prevState => [...prevState,document.data()])
-      console.log(rec)
+    //setRec([])
+    querySnapshot.forEach(async (document) => {
+
+
+      /*setRec(prevState => [...prevState,document.data()])
+      console.log(document)*/
+
+      const p = doc(db,"mostre",document.data().idMostra)
+      const result = await getDoc(p)
+      /*console.log("result",result)
+      setMostre(prevState => [...prevState,result.data()])*/
+
+      const res = {rec: document.data(), mostre: result.data()}
+
+      setResultRec(prevState => [...prevState,res])
+
+      console.log(res);
+    })
+  }
+
+  const getMostreByPreferiti = async (email) => {
+    console.log("getMostreByPreferiti",emailU)
+
+    const q = query(collection(db, "preferiti"),where("email","==",emailU));
+    const querySnapshot = await getDocs(q);
+    //setRec([])
+    querySnapshot.forEach(async (document) => {
+
+      const p = doc(db,"mostre",document.data().idMostra)
+      const result = await getDoc(p)
+
+      const res = {rec: document.data(), mostre: result.data()}
+
+      setResultPre(prevState => [...prevState,res])
+
+      console.log(res);
     })
   }
 
   const setUtenteInto = async (email) => {
-    const q = query(collection(db, "utenti"),where("email","==",utente));
+    console.log("setUtenteInto",emailU)
+    const q = query(collection(db, "utenti"),where("email","==",emailU));
     const querySnapshot = await getDocs(q);
     setUtente({})
     querySnapshot.forEach((document) => {
       setUtente(document.data())
-      console.log(utente)
+      console.log(document.data())
     })
   }
 
@@ -70,86 +112,42 @@ const PaginaUtente = () => {
 
         </div>
             <div className="mini-divciao">
-                <h1 >Mostre preferite</h1>
+                <h1 >Le tue recensioni</h1>
             </div>
-
 
           <div className="card-containerU">
-            <div className="cardU">
-              <h1>Uffizi</h1>
-              <p><b>Biglietto MULTIPLO X2</b> </p>
-              <p><b>Costo:</b> 50€</p>
-              <p><b>Data acquisto:</b> 07/06/2023</p>
-              <p><b>Metodo di pagamento:</b><br></br> PayPal </p>
-            </div>
-            <div className="cardU">
-            <h1>Giardino di Boboli</h1>
-            <p><b>Biglietto singolo</b> </p>
-              <p><b>Costo:</b> 16€</p>
-              <p><b>Data acquisto:</b> 07/06/2023</p>
-              <p><b>Metodo di pagamento:</b> Samsung Pay </p>
-            </div>
-            <div className="cardU">
-            <h1>Palazzo Pitti</h1>
-            <p><b>Biglietto MULTIPLO X2</b> </p>
-              <p><b>Costo:</b> 32€</p>
-              <p><b>Data acquisto:</b> 27/01/2023</p>
-              <p><b>Metodo di pagamento:</b><br></br> Carta di Credito </p>
-            </div>
+            {resultRec.map((el)=>(
+                <div className="cardU">
+                  <h1>Recensione</h1>
+                  <p><b>Voto: {el.rec.voto}</b> </p>
+                  <p><b>Commento: {el.rec.commento}</b></p>
+                  <h1>Mostra</h1>
+                  <p><b>Nome: {el.mostre.nome}</b> </p>
+                  <p><b>Descrizione: {el.mostre.descrizione}</b> </p>
+                  <p><b>Data inizio: {el.mostre.dataInizio}</b> </p>
+                  <p><b>Data fine: {el.mostre.dataFine}</b> </p>
+                </div>
+            ))}
           </div>
+
+
             <div className="mini-divciao">
-                <h1>musei preferiti preferiti</h1>
+                <h1>Mostre preferiti</h1>
             </div>
 
             <div className="card-containerU">
-            <div className="cardU">
-              <h1>Museo egizio</h1>
-              <img src={PWfoto}></img>
-            </div>
-            <div className="cardU">
-            <h1>Uffizi</h1>
-            <img src={PWfoto2}></img>
-            </div>
-            <div className="cardU">
-            <h1>Palazzo Pitti</h1>
-            <img src={PWfoto3}></img>
-            </div>
-          </div>
-          <div className="mini-divciao">
-          <h1>La tua attivita recente</h1>
-            </div>
 
-          <div className="info-containerBelloU2">
-          <div class="left-section scrollable-container">
-            <div class="scrollable-content">
-              <p><b>28/04/2023</b></p>
-              <p><b>Hai commentato: </b> Gli uffizi sono davvero fantastici! bella esperienza.</p>
-              <p><b>25/04/2023</b></p>
-              <p><b>Hai risposto a AleRicci01: </b> Ciao! il museo è attrezzato di un area ristoro per i visitatori, non occorre allontanarsi molto.</p>
-              <p><b>22/04/2023</b></p>
-              <p><b>Hai commentato: </b> Il museo egizio sempre bello.</p>
-              <p><b>21/04/2023</b></p>
-              <p><b>Hai commentato: </b> Visita consigliata, soprattutto in compagnia</p>
-              <p><b>15/04/2023</b></p>
-              <p><b>Hai messo like al commento di: AleFacc</b> </p>
-              <p><b>11/04/2023</b></p>
-              <p><b>Hai commentato: </b> Audio guida molto chiara. Non molto affollato, esperienza consigliata</p>
-              <p><b>06/04/2023</b></p>
-              <p><b>Hai commentato: </b> Gli uffizi sono davvero fantastici! bella esperienza.</p>
-              <p><b>01/04/2023</b></p>
-              <p><b>Hai messo like al commento di: Giacomo_Barza </b> </p>
-            </div>
+              {resultPre.map((el)=>(
+                  <div className="cardU">
+                    <h1>Mostra</h1>
+                    <p><b>Nome: {el.mostre.nome}</b> </p>
+                    <p><b>Descrizione: {el.mostre.descrizione}</b> </p>
+                    <p><b>Data inizio: {el.mostre.dataInizio}</b> </p>
+                    <p><b>Data fine: {el.mostre.dataFine}</b> </p>
+                  </div>
+              ))}
           </div>
-          <div class="rectangleU1">
-          <div class="right-sectionU2">
-            <h3>Info commenti</h3>
-            <p><b>commenti scritti:</b> 15</p>
-            <p><b>segnalazioni inviate:</b> 3</p>
-            <h3>Like inviati</h3>
-            <p><b>commenti scritti:</b> 15</p>
-          </div>
-        </div>
-        </div>
+
 
 
           <Footer />
