@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "./components/dbconfig/dbconfig";
+import {auth, db} from "./components/dbconfig/dbconfig";
 import { useNavigate } from "react-router-dom";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
 
 import "../src/index.css";
+import {addDoc, collection} from "firebase/firestore";
 
 const Registry = () => {
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
+  const [nome, setNome] = useState("");
+  const [cognome, setCognome] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsChecked, setTermsChecked] = useState(false);
@@ -22,6 +25,15 @@ const Registry = () => {
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
+
+  const handleNomeChange = (event) => {
+    setNome(event.target.value);
+  };
+
+  const handleCognomeChange = (event) => {
+    setCognome(event.target.value);
+  };
+
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -52,6 +64,7 @@ const Registry = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          createUtente()
           navigate("/login");
         })
         .catch((err) => {
@@ -62,6 +75,17 @@ const Registry = () => {
         });
     }
   };
+
+  const createUtente = async () => {
+    const current = new Date()
+
+    const docRef = await addDoc(collection(db, "utenti"), {
+      nome: nome,
+      cognome: cognome,
+      email: email,
+      primoAccesso: `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
+    });
+  }
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -90,10 +114,10 @@ const Registry = () => {
         <form onSubmit={handleSubmit}>
           <h2>Registrazione</h2>
           <div className="form-group" style={{ marginBottom: "10px" }}>
-            <input type="Nome" required placeholder="Inserisci nome" />
+            <input type="text" required placeholder="Inserisci nome" value={nome} onChange={handleNomeChange}/>
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
-            <input type="Cognome" required placeholder="Inserisci cognome" />
+            <input type="text" required placeholder="Inserisci cognome" value={cognome} onChange={handleCognomeChange}/>
           </div>
           <div className="form-group" style={{ marginBottom: "10px" }}>
             <input
