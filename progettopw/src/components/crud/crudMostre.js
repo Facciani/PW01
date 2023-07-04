@@ -42,7 +42,6 @@ const GetMostre = () => {
     }
 
     useEffect(()=>{
-
         (async()=>{
             if(!!idMuseo){
                 mostreCollectionRef = collection(db, "musei-mostre");

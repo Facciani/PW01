@@ -179,6 +179,16 @@ const GetSpecificMuseo = () => {
           <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Orari: {museo.orari}</p>
           <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Sito Web: {museo.sitoWeb}</p>
           <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Telefono: {museo.telefono}</p>
+            <iframe
+                src={museo.src}
+                width="600"
+                height="450"
+                frameBorder="0"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                aria-hidden="false"
+                tabIndex="0"
+            />
         </div>
       </div>
     </>
