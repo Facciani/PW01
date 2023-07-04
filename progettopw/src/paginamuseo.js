@@ -24,14 +24,32 @@ function MuseumPage() {
 <>
   <Header />
 
-  <GetMuseoIMG/>
+  <GetMuseoIMG />
   <div className="content-containerM">
     <div className="divPoderoso">
-      <GetSpecificMuseo/>   
-        <p style={{ fontWeight: "bold", fontSize: "19px" }}>Mostre disponibili</p>
+      <GetSpecificMuseo />    
+
+<button
+  /*onClick={funzione sgrava che devi mettere tu <3} */
+  style={{
+    backgroundColor: "#f45757",
+    color: "white",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    marginBottom: "10px",
+    cursor: "pointer",
+  }}
+>
+  Bottone Rosso
+</button>
+      <p style={{ fontWeight: "bold", fontSize: "19px" }}>Mostre disponibili</p>
     </div>
   </div>
-  <GetMostre/>
+  <div style={{ position: "relative" }}>
+    <GetMostre />
+
+  </div>
   <Footer />
 </>
   );

@@ -28,9 +28,19 @@ const GetSpecificArtista = () => {
     };
 
     return (
-        <>
-            <p>{artista.nome} {artista.cognome} {artista.descrizione} </p>
-        </>
+        <div style={{ 
+            maxWidth: '750px', 
+            margin: '20px auto 0', 
+            border: '2px solid black', 
+            padding: '10px',
+            backgroundColor: '#EFDBB5',
+            borderRadius: '10px',
+          }}>
+              <h1 style={{ textAlign: 'center' }}><b>{artista.nome} {artista.cognome}</b></h1>  
+              <p style={{ marginBottom: '50px', fontSize: '16px', textAlign: 'center' }}>{artista.descrizione}</p>
+          </div>
+
+     
 
 
     );
