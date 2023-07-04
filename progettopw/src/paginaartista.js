@@ -2,22 +2,33 @@ import Header from "./components/header";
 import "../src/index.css";
 import imgLeo from "../src/components/img/imgLeo.jpeg";
 import Footer from "./components/footer";
+import {useContext, useEffect} from "react";
+import {IdMostraContext} from "./components/context/idMostraContext";
+import {IdArtistaContext} from "./components/context/idArtistaContext";
+import {GetSpecificMostra} from "./components/crud/crudMostre";
+import {GetArtistaIMG, GetSpecificArtista} from "./components/crud/crudArtista";
 
 function ArtistPage() {
+
+  const { idArtista, setIdArtista } = useContext(IdArtistaContext);
+
+  useEffect(()=>{
+    const pathname = window.location.pathname
+    const info = pathname.split('/')
+
+    setIdArtista(info[2])
+  },[])
+
   return (
     <>
       <Header />
       <div className="Leonardo-vinci">
         <div className="imm-leonardo">
-          <img src={imgLeo}></img>
+          <GetArtistaIMG/>
         </div>
         <div className="testo-leonardo" style={{ fontWeight: "bold" }}>
           <h1>Leonardo da Vinci</h1>
-          <p>
-            Leonardo da Vinci di ser Piero è stato uno scienziato, inventore e
-            artista italiano. Uomo d'ingegno e talento universale del
-            Rinascimento, considerato uno dei più grandi geni dell'umanità
-          </p>
+          <GetSpecificArtista/>
           <div className="button">
             <button>eventi a tema prossimi</button>
           </div>

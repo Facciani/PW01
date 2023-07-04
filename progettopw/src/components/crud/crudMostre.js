@@ -108,6 +108,39 @@ const GetMostre = () => {
       
 }
 
+const GetMostraIMG = () => {
+
+    const {idMostra, setIdMostra} = useContext(IdMostraContext);
+
+    let mostraIMGref = null
+
+    useEffect(() => {
+        if (idMostra !== "") {
+            mostraIMGref = ref(storage, `/mostre/${idMostra}`)
+            downloadIMG()
+        }
+    }, [idMostra])
+
+    const downloadIMG =  async () => {
+        const list = await listAll(mostraIMGref);
+        for (const itemRef of list.items) {
+            const url = await getDownloadURL(ref(storage,itemRef.fullPath))
+            console.log(url)
+            document.getElementById("fotomain").src = url
+        }
+    }
+
+    return (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+            <img
+                id="fotomain"
+                alt="mostra"
+                style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+            />
+        </div>
+    )
+}
+
 const GetSpecificMostra = () => {
     const { idMostra, setIdMostra } = useContext(IdMostraContext);
     const [mostra, setMostra] = useState([])
@@ -169,4 +202,4 @@ const GetSpecificMostra = () => {
     );
 }
 
-export {GetMostre, GetSpecificMostra}
+export {GetMostre, GetSpecificMostra, GetMostraIMG}

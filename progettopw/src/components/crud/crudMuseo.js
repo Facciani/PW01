@@ -169,7 +169,7 @@ const GetMuseoIMG = () => {
 
     useEffect(() => {
         if (idMuseo !== "") {
-            museoIMGref = ref(storage, `/${idMuseo}`)
+            museoIMGref = ref(storage, `/musei/${idMuseo}`)
             downloadIMG()
         }
     }, [idMuseo])

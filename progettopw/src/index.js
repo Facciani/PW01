@@ -26,6 +26,7 @@ import PaginaUtente from "./paginaUtente";
 import Paginaartista from "./paginaartista";
 import PaginaMostra from "./paginamostra";
 import {IdMostraProvider} from "./components/context/idMostraContext";
+import {IdArtistaProvider} from "./components/context/idArtistaContext";
 
 const router = createBrowserRouter([
   {
@@ -65,7 +66,9 @@ root.render(
       <SearchResultProvider>
         <IdMuseoProvider>
           <IdMostraProvider>
-            <RouterProvider router={router} />
+            <IdArtistaProvider>
+              <RouterProvider router={router} />
+            </IdArtistaProvider>
           </IdMostraProvider>
         </IdMuseoProvider>
       </SearchResultProvider>
