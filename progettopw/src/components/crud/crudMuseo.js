@@ -163,36 +163,59 @@ const GetSpecificMuseo = () => {
   };
 
   return (
-    <>
-      <p style={{ fontWeight: "bold", fontSize: "25px", marginLeft: "20px", marginBottom: "10px" }}>{museo.nome}</p>
-      <p style={{ fontWeight: "bold", fontSize: "18px", color: "#F45757", marginLeft: "20px", marginBottom: "10px" }}>{museo.indirizzo}, {museo.citta}</p>
-      <br />
-      <div style={{ display: "flex", marginBottom: "20px" }}>
-        <div
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      {/* Information Div */}
+      <div
+        style={{
+          flex: "1",
+          padding: "10px",
+          borderRadius: "10px",
+          backgroundColor: "#EFDBB5",
+        }}
+      >
+        <p style={{ fontWeight: "bold", fontSize: "25px", marginBottom: "10px", textAlign: "center" }}>
+          {museo.nome}
+        </p>
+        <p
           style={{
-            padding: "10px",
-            borderRadius: "10px",
-            backgroundColor: "#EFDBB5",
+            fontWeight: "bold",
+            fontSize: "18px",
+            color: "#F45757",
+            marginBottom: "10px",
+            textAlign: "center"
           }}
         >
-          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>{museo.descrizione}</p>
-          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Orari: {museo.orari}</p>
-          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Sito Web: {museo.sitoWeb}</p>
-          <p style={{ fontWeight: "bold", fontSize: "16px", marginLeft: "20px", marginBottom: "10px" }}>Telefono: {museo.telefono}</p>
-          
-        </div>  <iframe
-                src={museo.src}
-                width="600"
-                height="450"
-                frameBorder="0"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                aria-hidden="false"
-                tabIndex="0"
-            />
+          {museo.indirizzo}, {museo.citta}
+        </p>
+        <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+          {museo.descrizione}
+        </p>
+        <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+          Orari: {museo.orari}
+        </p>
+        <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+          Sito Web: {museo.sitoWeb}
+        </p>
+        <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "10px" }}>
+          Telefono: {museo.telefono}
+        </p>
       </div>
-    </>
+      {/* Maps iframe */}
+      <div style={{ flex: "1", display: "flex", justifyContent: "center" }}>
+        <iframe
+          src={museo.src}
+          width="400" 
+          height="250" 
+          frameBorder="0"
+          style={{  borderRadius: "10px" }}
+          allowFullScreen=""
+          aria-hidden="false"
+          tabIndex="0"
+        />
+      </div>
+    </div>
   );
+  
 }
 
 const GetMuseoIMG = () => {
