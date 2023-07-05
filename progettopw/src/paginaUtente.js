@@ -132,13 +132,13 @@ const PaginaUtente = () => {
 
 
             <div className="mini-divciao">
-                <h1>Mostre preferiti</h1>
+                <h1>Mostre preferite</h1>
             </div>
 
-            <div className="card-containerU">
-
+            <div className="card-containerU1">
               {resultPre.map((el)=>(
-                  <div className="cardU">
+
+                  <div className="cardU1" >
                     <h1>Mostra</h1>
                     <p><b>Nome: {el.mostre.nome}</b> </p>
                     <p><b>Descrizione: {el.mostre.descrizione}</b> </p>
@@ -147,9 +147,6 @@ const PaginaUtente = () => {
                   </div>
               ))}
           </div>
-
-
-
           <Footer />
         </>
       );

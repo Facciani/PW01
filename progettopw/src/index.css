@@ -584,43 +584,76 @@ button:hover {
 
 .card-containerU {
   background-color: #EFDBB5;
-  height: 250px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-containerU1 {
+  background-color: #EFDBB5;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .cardU {
-  width: 250px;
-  height: 200px;
-  background: rgb(255, 255, 255);
-  margin: 10px;
-  border: 2px solid black;
-  border-radius: 10px 10px 0 0;
-}
-.cardU1 {
-  width: 300px;
-  height: 120px;
+  width: 30%;
+  height: 60%;
   background: rgb(255, 255, 255);
   margin: 10px;
   border: 2px solid black;
   border-radius: 10px;
+  background-color: #FFF0D3;
+
+}
+
+.cardU1 {
+  width: 30%;
+  height: 60%;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #FFF0D3;
+  text-align: center;
 }
 
 .cardU h1 {
   text-align: center;
   font-size: 13.5px;
   color: black;
+  text-decoration: underline;
 }
 .cardU p {
   font-size: 16px;
   margin-left: 20px;
   margin-top: 10px;
 }
+
 .cardU img {
   max-width: 100%;
   max-height: 100%;
 }
+
+
+.cardU1 h1 {
+  text-align: center;
+  font-size: 13.5px;
+  color: black;
+  text-decoration: underline;
+}
+.cardU1 p {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.cardU1 img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 /* Stile del contenitore scrollable */
 .scrollable-container {
   
