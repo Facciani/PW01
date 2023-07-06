@@ -20,13 +20,14 @@ function Suggest() {
           </div>
           <div class="bottom-section">
             <p style={{ fontWeight: "bold", fontSize: "1.1em" }}>
-            Museo Civico di Storia Naturale di Milano
+              Museo Civico di Storia Naturale di Milano
             </p>
             <br></br>
             <div class="padding">
-            <p style={{ fontWeight: "bold" }}>
-            Edificio del XIX secolo in cui sono esposti minerali, fossili, scheletri e animali imbalsamati.
-            </p>
+              <p style={{ fontWeight: "bold" }}>
+                Edificio del XIX secolo in cui sono esposti minerali, fossili,
+                scheletri e animali imbalsamati.
+              </p>
             </div>
           </div>
         </div>
@@ -37,11 +38,12 @@ function Suggest() {
           </div>
           <div class="bottom-section">
             <p style={{ fontWeight: "bold", fontSize: "1.1em" }}>
-            Museo delle illusioni
+              Museo delle illusioni
             </p>
             <br></br>
             <p style={{ fontWeight: "bold" }}>
-            Museo per famiglie dedicato alle illusioni ottiche, con mostre di ologrammi e specchi.
+              Museo per famiglie dedicato alle illusioni ottiche, con mostre di
+              ologrammi e specchi.
             </p>
           </div>
         </div>
@@ -56,13 +58,13 @@ function Suggest() {
             </p>
             <br></br>
             <p style={{ fontWeight: "bold" }}>
-            Museo ospitato in un palazzo del XV secolo con collezioni di bronzi, armature e libri liturgici medievali.
+              Museo ospitato in un palazzo del XV secolo con collezioni di
+              bronzi, armature e libri liturgici medievali.
             </p>
-
-            </div>
           </div>
         </div>
       </div>
+    </div>
   );
 }
 

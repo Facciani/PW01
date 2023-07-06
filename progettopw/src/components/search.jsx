@@ -1,13 +1,13 @@
-import {useState, useEffect, useContext} from "react";
-import {collection, query, getDocs, where } from "firebase/firestore";
-import {db} from "./dbconfig/dbconfig"
-import {SearchContext} from "./context/searchContext";
-import {YourLocationContext} from "./context/yourlocationContext";
-
+import { useState, useEffect, useContext } from "react";
+import { collection, query, getDocs, where } from "firebase/firestore";
+import { db } from "./dbconfig/dbconfig";
+import { SearchContext } from "./context/searchContext";
+import { YourLocationContext } from "./context/yourlocationContext";
 
 const Search = () => {
-
-  const { search, setSearch, searchDistance, setSearchDistance} = useContext(SearchContext);
+  const { search, setSearch, searchDistance, setSearchDistance } = useContext(
+    SearchContext
+  );
   const { lat, lon } = useContext(YourLocationContext);
 
   return (
@@ -28,7 +28,6 @@ const Search = () => {
             />
           </div>
           <div className="form-field">
-          
             <label htmlFor="campo2" className="form-label">
               DISTANZA
             </label>
